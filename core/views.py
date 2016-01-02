@@ -82,6 +82,10 @@ class BusinesView(View):
 def add_business_successful(request):
     return render(request,'core/business_successful.html')
 
+class ReviewListView(ListView):
+    model = Business
+    template_name = 'core/review_list.html'
+
 
 
 

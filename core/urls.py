@@ -10,4 +10,5 @@ urlpatterns = patterns('',
                        url(r'^business_add',BusinesView.as_view(),name='business_add'),
                        url(r'^business_edit',BusinesView.as_view(),name='business_edit'),
                        url(r'^add_business_successful',add_business_successful,name='add_business_successful'),
+                       url(r'^review_list',ReviewListView.as_view(),name='review_list'),
                        )

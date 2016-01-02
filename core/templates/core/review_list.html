@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block main %}
+<form action="{% url 'core:review_list' %}" method="post">{%csrf_token%}
+    {{form.business_name}}
+    <input class="btn btn-sm btn-primary" type="submit" value="Find"/>
+</form>
+<div class="col-sm-8">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Choose the business you'd like to review...</h3>
+        </div>
+        <div class="panel-body">
+                <ul class="list-group">
+                  {% for business in business_list %}
+                  <li class="list-group-item">{{business}}<a href="{% url 'review_create' content_type='business' object_id=business.pk %}">Review Business</a> </li>
+                  {% endfor %}
+                </ul>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+<a href="#" class="btn btn-primary">Add a Business</a>
+</div>
+
+{% endblock %}
