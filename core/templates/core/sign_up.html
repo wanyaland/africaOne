@@ -1,0 +1,98 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+<div >
+    <div >
+        <div class="widget-main">
+            <h4 class="header green lighter bigger">
+                <i class="icon-group blue"></i>
+                New User Registration
+            </h4>
+            <div class="space-6"></div>
+            <p> Enter your details to begin: </p>
+            {% if form.errors %}
+            {% for field,error in form.errors.items %}
+            <div class="text-warning bigger-110 orange">
+                <i class="icon-warning-sign"></i>
+                {% if field != '__all__' %}{{ field }}{% endif %}
+                {{ error|striptags }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <form action="{% url 'core:sign_up' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                <fieldset>
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            {{form.username}}
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            {{form.first_name}}
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            {{form.last_name}}
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
+
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            {{form.email}}
+                            <i class="icon-envelope"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input id="id_password1" name="password1" type="password" class="form-control" placeholder="Password" />
+                            <i class="icon-lock"></i>
+                        </span>
+                    </label>
+
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input id="id_password2" name="password2" type="password" class="form-control" placeholder="Repeat Password" />
+                            <i class="icon-retweet"></i>
+                        </span>
+                    </label>
+
+                    <!--<label class="block">
+                        <input type="checkbox" class="ace" />
+                        <span class="lbl">
+                            I accept the
+                            <a href="#">User Agreement</a>
+                        </span>
+                    </label>-->
+
+                    <div class="space-24"></div>
+
+                    <div class="clearfix">
+
+                        <button type="submit" class="width-20 pull-right btn btn-sm btn-success">
+                            Register
+                            <i class="icon-arrow-right icon-on-right"></i>
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

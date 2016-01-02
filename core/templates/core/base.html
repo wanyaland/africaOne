@@ -49,7 +49,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'core:home' %}">Home</a></li>
         <li><a href="#">Write a Review</a></li>
-        <li><a href="#">Business Owners</a></li>
+        <li><a href="{% url 'core:business_list' %}">Business Owners</a></li>
         <li><a href="#">Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -61,7 +61,7 @@
               <a href="/logout/"><span class="glyphicon glyphicon-log-out"></span>Log Out </a>
           </li>
           {% else %}
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{%url 'core:sign_up'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           {% endif %}
       </ul>
@@ -83,6 +83,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+   <script src="/static/bootstrap/js/jquery-1.10.2.min.js"></script>
 
  </body>
 </html>

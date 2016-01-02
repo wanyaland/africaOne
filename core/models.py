@@ -27,12 +27,15 @@ class Business(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(User)
+    photo = models.CharField(max_length=20,null=True)
+
     def __unicode__(self):
         return "%s %s" %(self.user.first_name,self.user.last_name)
 
 class Event(models.Model):
     event_name = models.CharField(max_length=20)
     event_date = models.DateTimeField()
+
     def __unicode__(self):
         return self.event_name
 

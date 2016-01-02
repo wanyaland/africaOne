@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% block main %}
+<div class="inline position-relative">
+<form action="{% url 'core:business_list' %}" method="post">{%csrf_token%}
+    <!--<label for="id_business_name">Name</label>-->
+    <!--<input type="text" name="business_name" id="id_business_name"/>-->
+    {{form.business_name}}
+    <input class="btn btn-sm btn-primary" type="submit" value="Find"/>
+</form>
+<p>
+   Cant find your business? <a href="{% url 'core:business_add'%}">Add Your Business </a>
+</p>
+</div>
+
+<div class="table-header">
+    Business List
+</div>
+<div class="table-responsive">
+    <table id="sample-table-2" class="table table-stripped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for business in business_list %}
+        <tr>
+            <td>{{business.name}}</td>
+            <td>{{business.address}}</td>
+            <td>{{business.email}}</td>
+            <td>{{business.city}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

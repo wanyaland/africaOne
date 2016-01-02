@@ -1,5 +1,89 @@
 {% extends 'core/base.html' %}
 {% block main %}
+<div class="col-sm-8">
+    <div class="row">
+    <div class="col-sm-3 ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Customers</h3>
+            </div>
+            <div class="panel-body">
+                <p>Blabla</p>
+                <a href="{% url 'core:sign_up' %}" class="btn btn-small">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Busineses</h3>
+            </div>
+            <div class="panel-body">
+                <p>Blabla</p>
+                <a href="#" class="btn">Sign Up</a>
+            </div>
+        </div>
+   </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Kampala awaits your review</h3>
+        </div>
+        <div class="panel-body">
+            <form method="post" action="">{%csrf_token%}
+              {{review_form.as_p}}
+            </form>
+        </div>
+    </div>
 
 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Top on AfricaOne near you</h3>
+        </div>
+        <div class="panel-body">
+            
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Recent Activity</h3>
+        </div>
+        <div class="panel-body">
+            Activity
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Review of the day</h3>
+            </div>
+            <div class="panel-body">
+                badasdasdadasdasd
+            </div>
+        </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">The AfricanOne Mobile App</h3>
+        </div>
+        <div class="panel-body">
+            Mobile App
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Popular Events
+            </h3>
+        </div>
+        <div class="panel-body">
+            Events
+        </div>
+    </div>
+</div>
 {% endblock %}
