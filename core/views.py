@@ -17,8 +17,8 @@ def logout_view(request):
 def sign_up(request):
     if request.method=='POST':
         form = RegistrationForm(request.POST)
-        customer_form = CustomerForm(request.POST)
-        if  form.is_valid():
+        customer_form = CustomerForm(request.POST,request.FILES)
+        if  form.is_valid() and customer_form.is_valid() :
             user = form.save()
             customer = customer_form.save(commit=False)
             customer.user = user

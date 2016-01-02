@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'core',
     'south',
     'review',
+    'hvad',
     'user_media',
     'generic_positions',
     'social.apps.django_app.default',
@@ -112,6 +113,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL='/media/'
+ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1680902652194882'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ae1a5ac1caa8392bdd7198aee9f5f4b4'

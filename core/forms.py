@@ -9,7 +9,7 @@ from models import Customer,Business
 class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('first_name','last_name','email','username','password1','password2')
+        fields = ('username','first_name','last_name','email','password1','password2')
         widgets = {
             'username': TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
             'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Surname'}),
@@ -27,7 +27,7 @@ class CustomerForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields =('name','address','email','web_address','phone_number','city','categories','location')
+        fields =('name','address','email','web_address','phone_number','city','categories','location','photo')
         widgets = {
             'name':TextInput(attrs={'class':'form-control','placeholder':'Business Name'}),
             'address':TextInput(attrs={'class':'form-control','placeholder':'Address'}),
@@ -37,3 +37,4 @@ class BusinessForm(forms.ModelForm):
             'web_address':TextInput(attrs={'class':'form-control','placeholder':'Web Address'}),
             'categories':forms.CheckboxSelectMultiple(),
         }
+

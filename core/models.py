@@ -16,7 +16,7 @@ class Business(models.Model):
     city = models.CharField(max_length=20,null=True)
     phone_number = models.CharField(max_length=12,null=True)
     web_address = models.URLField(null=True)
-    photo = models.ImageField(null=True,upload_to='/media/')
+    photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True,null=True)
     location = GeopositionField(null=True)
     approved = models.BooleanField(default=False)
@@ -27,15 +27,13 @@ class Business(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(User)
-    photo = models.CharField(max_length=20,null=True)
-
+    photo = models.FileField(null=True,upload_to='avatars/%Y/%m/%d',blank=True)
     def __unicode__(self):
         return "%s %s" %(self.user.first_name,self.user.last_name)
 
 class Event(models.Model):
     event_name = models.CharField(max_length=20)
     event_date = models.DateTimeField()
-
     def __unicode__(self):
         return self.event_name
 

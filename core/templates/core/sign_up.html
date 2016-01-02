@@ -14,13 +14,21 @@
             </h4>
             <div class="space-6"></div>
             <p> Enter your details to begin: </p>
-            {% if form.errors %}
+            {% if form.errors or customer_form.errors %}
             {% for field,error in form.errors.items %}
             <div class="text-warning bigger-110 orange">
                 <i class="icon-warning-sign"></i>
                 {% if field != '__all__' %}{{ field }}{% endif %}
                 {{ error|striptags }}
             </div>
+            {% endfor %}
+            {% for field,error in customer_form.errors.items %}
+            <div class="text-warning bigger-110 orange">
+                <i class="icon-warning-sign"></i>
+                {% if field != '__all__' %}{{ field }}{% endif %}
+                {{ error|striptags }}
+            </div>
+
             {% endfor %}
             {% endif %}
 
@@ -68,6 +76,9 @@
                             <i class="icon-retweet"></i>
                         </span>
                     </label>
+
+                   {{customer_form.photo}}
+
 
                     <!--<label class="block">
                         <input type="checkbox" class="ace" />
