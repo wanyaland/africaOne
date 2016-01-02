@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>{% block title %}Africa One Business Directory{% endblock %}</title>
+
+   <!-- Bootstrap -->
+   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/bootstrap/css/bootstrap-social.css" rel="stylesheet">
+   <link href="/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+   <link href="/static/bootstrap/css/fbposter.css" rel="stylesheet">
+     <link rel="stylesheet" href="/static/bootstrap/css/font-awesome.min.css" />
+     <!--[if IE 7]>
+     <link rel="stylesheet" href="/static/bootstrap/css/font-awesome-ie7.min.css" />
+        <![endif]-->
+
+        <!-- page specific plugin styles -->
+
+        <!-- fonts -->
+
+        <link rel="stylesheet" href="/static/bootstrap/css/ace-fonts.css" />
+
+        <!-- ace styles -->
+
+        <link rel="stylesheet" href="/static/bootstrap/css/ace.min.css" />
+        <link rel="stylesheet" href="/static/bootstrap/css/ace-rtl.min.css" />
+
+        <!--[if lte IE 8]>
+          <link rel="stylesheet" href="/static/bootstrap/css/ace-ie.min.css" />
+        <![endif]-->
+
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+   <![endif]-->
+ </head>
+ <body>
+ <div class="container">
+ <nav class="navbar ">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AfricaOne</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'core:home' %}">Home</a></li>
+        <li><a href="#">Write a Review</a></li>
+        <li><a href="#">Business Owners</a></li>
+        <li><a href="#">Events</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li>
+              <a>Welcome {{user.username}}</a>
+          </li>
+          <li>
+              <a href="/logout/"><span class="glyphicon glyphicon-log-out"></span>Log Out </a>
+          </li>
+          {% else %}
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="space-6"></div>
+   <div class="content">
+       <div class="row">
+           <div class="col-xs-12">
+               {% block main %}{% endblock %}
+           </div>
+       </div>
+
+   </div>
+ </div>
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+ </body>
+</html>
