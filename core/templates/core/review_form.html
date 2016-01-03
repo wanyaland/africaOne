@@ -8,9 +8,8 @@
             </div>
             <div class="panel-body">
             <form action="{{action_url}}" method="post">
-              {% csrf_token %}
-              {{business.name}}
-              {{form.as_p}}
+                {%csrf_token%}
+              {% include "core/review_snippet.html" %}
               <input type="submit" value="Post"/>
             </form>
             </div>
@@ -29,8 +28,10 @@
                 <div class="row">
                     {{review.review}}
                 </div>
+                <div class="star">
+                    {{review.review.score}}
+                </div>
                 <div class="space-6"></div>
-                {{review.rating}}
 
                 {% endfor %}
             </div>

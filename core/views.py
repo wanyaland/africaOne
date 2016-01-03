@@ -11,6 +11,7 @@ from django.contrib.contenttypes.models import ContentType
 
 
 def index(request):
+    review_list = Review.objects.all()
     return render(request,'core/index.html')
 
 def logout_view(request):
@@ -145,8 +146,6 @@ class ReviewView(View):
                     'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add',kwargs={'business_pk':business_pk})
                 }
             )
-
-
 
 
 
