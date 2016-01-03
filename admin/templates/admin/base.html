@@ -4,7 +4,7 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>{% block title %}Africa One Business Directory{% endblock %}</title>
+   <title>{% block title %}Admin{% endblock %}</title>
 
    <!-- Bootstrap -->
    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,7 @@
         <!--[if lte IE 8]>
           <link rel="stylesheet" href="/static/bootstrap/css/ace-ie.min.css" />
         <![endif]-->
+          <link rel="stylesheet" href="/static/admin/css/default.css"/>
 
    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,46 +40,18 @@
    <![endif]-->
  </head>
  <body>
- <div class="container">
- <nav class="navbar ">
     <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">AfricaOne</a>
+        <div class="row">
+            <!--side-menu-->
+            <div class="col-md-2" id="side-menu">
+              <h1>Navigation</h1>
+            </div>
+            <!--main-content -->
+            <div class="col-md-10">
+                {%block main %} {% endblock %}
+            </div>
+        </div>
     </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'core:home' %}">Home</a></li>
-        <li><a href="{% url 'core:review_list'%}">Write a Review</a></li>
-        <li><a href="{% url 'core:business_list' %}">Business Owners</a></li>
-        <li><a href="#">Events</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          {% if user.is_authenticated %}
-          <li>
-              <a>Welcome {{user.username}}</a>
-          </li>
-          <li>
-              <a href="/logout/"><span class="glyphicon glyphicon-log-out"></span>Log Out </a>
-          </li>
-          {% else %}
-        <li><a href="{%url 'core:sign_up'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          {% endif %}
-      </ul>
-    </div>
-  </div>
-</nav>
-  <div class="space-6"></div>
-   <div class="content">
-       <div class="row">
-           <div class="col-xs-12">
-               {% block main %}{% endblock %}
-           </div>
-       </div>
-
-   </div>
- </div>
-
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->

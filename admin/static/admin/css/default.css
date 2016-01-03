@@ -1,0 +1,17 @@
+html,body{
+font-family:"open sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+background-color:#f3f3f4;
+color:#676a6c;
+}
+
+#side-menu{
+background-color:#2f4050;
+padding:0px;
+}
+
+#side-menu h1{
+  color:#1f6347;
+  text-align:center;
+  margin:10px 0px;
+  font-size:25px;
+}

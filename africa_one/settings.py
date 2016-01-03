@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'generic_positions',
     'social.apps.django_app.default',
     'geoposition',
+    'admin',
 )
 
 MIDDLEWARE_CLASSES = (
