@@ -1,4 +1,9 @@
 {% extends 'core/base.html' %}
 {% block main %}
-{{form.as_p}}
+<form action="{{action_url}}" method="post">
+    {% csrf_token %}
+    {{business.name}}
+    {{form.as_p}}
+    <input type="submit" value="Post"/>
+</form>
 {% endblock %}

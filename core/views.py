@@ -6,6 +6,9 @@ from django.views.generic.detail import DetailView
 from core.models import *
 from django.views.generic import *
 from django.core.urlresolvers import reverse
+from djangoratings.views import AddRatingView,AddRatingFromModel
+from django.contrib.contenttypes.models import ContentType
+
 
 def index(request):
     return render(request,'core/index.html')
@@ -78,7 +81,6 @@ class BusinesView(View):
                 }
             )
 
-
 def add_business_successful(request):
     return render(request,'core/business_successful.html')
 
@@ -93,22 +95,25 @@ class ReviewView(View):
     def get(self,request,*args,**kwargs):
         pk = self.kwargs.get('pk')
         business_pk = self.kwargs.get('business_pk')
+        business = get_object_or_404(Business,pk=business_pk)
         if pk is None:
             review_form = ReviewForm()
         else:
             review = get_object_or_404(Review,pk=pk)
-            review_form = BusinessForm(instance=review)
+            review_form = ReviewForm(instance=review)
         return render(
             request,
             self.template_name,{
                 'form':review_form,
                 'action_url':reverse('core:review_edit',
-                                     kwargs={'pk':pk}) if pk else reverse ('core:review_add',kwargs={'business_pk':business_pk})
+                                     kwargs={'pk':pk}) if pk else reverse ('core:review_add',kwargs={'business_pk':business_pk}),
+                'business':business
             }
         )
 
     def post(self,request,*args,**kwargs):
         pk = self.kwargs.get('pk')
+        business_pk = self.kwargs.get('business_pk')
         if pk is not None:
             review = get_object_or_404(Review,pk=pk)
             review_form = ReviewForm(instance=review,data=request.POST)
@@ -119,16 +124,31 @@ class ReviewView(View):
             business_pk=self.kwargs.get('business_pk')
             business = get_object_or_404(Business,pk=business_pk)
             review.business = business
-            review.customer = request.user
+            review.customer = Customer.objects.get(user=request.user)
             review.save()
-            return redirect('core:review_list')
+            review_type = ContentType.objects.get_for_model(review)
+            score = request.POST['rating']
+            params = {
+                'content_type_id':review_type.id,
+                'object_id':review.id,
+                'field_name': 'rating',
+                'score':score,
+            }
+            response=AddRatingView()(request,**params)
+            if response.status_code==200:
+                return redirect('core:review_list')
+            return {'error':9,'message':response.content}
         else:
             return render(
                 request,self.template_name,{
                     'review_form':review_form,
-                    'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add')
+                    'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add',kwargs={'business_pk':business_pk})
                 }
             )
+
+
+
+
 
 
 

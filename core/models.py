@@ -38,13 +38,13 @@ class Event(models.Model):
     def __unicode__(self):
         return self.event_name
 
-
 class Review(models.Model):
-    customer = models.ForeignKey(Customer)
-    business = models.ForeignKey(Business)
+    customer = models.ForeignKey(Customer,null=True)
+    business = models.ForeignKey(Business,null=True)
     rating = RatingField(range=5)
     review = models.TextField()
-    create_date = models.DateTimeField()
+    create_date = models.DateTimeField(auto_now_add=True)
+
     
 
 

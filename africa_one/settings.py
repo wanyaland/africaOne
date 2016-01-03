@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+TIME_ZONE = 'Africa/Kampala'
 # Application definition
 
 INSTALLED_APPS = (
