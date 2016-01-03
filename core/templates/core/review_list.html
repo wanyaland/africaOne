@@ -12,11 +12,13 @@
         <div class="panel-body">
                 <ul class="list-group">
                   {% for business in business_list %}
-                  <li class="list-group-item">{{business}}<a href="{% url 'review_create' content_type='business' object_id=business.pk %}">Review Business</a> </li>
+                  <li class="list-group-item">{{business}}<a href="{% url 'core:review_add' business_pk=business.pk %}">Review Business</a> </li>
                   {% endfor %}
                 </ul>
         </div>
     </div>
+
+
 </div>
 <div class="col-sm-4">
 <a href="#" class="btn btn-primary">Add a Business</a>

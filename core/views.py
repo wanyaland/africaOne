@@ -86,7 +86,49 @@ class ReviewListView(ListView):
     model = Business
     template_name = 'core/review_list.html'
 
+class ReviewView(View):
 
+    template_name='core/review_form.html'
+
+    def get(self,request,*args,**kwargs):
+        pk = self.kwargs.get('pk')
+        business_pk = self.kwargs.get('business_pk')
+        if pk is None:
+            review_form = ReviewForm()
+        else:
+            review = get_object_or_404(Review,pk=pk)
+            review_form = BusinessForm(instance=review)
+        return render(
+            request,
+            self.template_name,{
+                'form':review_form,
+                'action_url':reverse('core:review_edit',
+                                     kwargs={'pk':pk}) if pk else reverse ('core:review_add',kwargs={'business_pk':business_pk})
+            }
+        )
+
+    def post(self,request,*args,**kwargs):
+        pk = self.kwargs.get('pk')
+        if pk is not None:
+            review = get_object_or_404(Review,pk=pk)
+            review_form = ReviewForm(instance=review,data=request.POST)
+        else:
+            review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            review=review_form.save(commit=False)
+            business_pk=self.kwargs.get('business_pk')
+            business = get_object_or_404(Business,pk=business_pk)
+            review.business = business
+            review.customer = request.user
+            review.save()
+            return redirect('core:review_list')
+        else:
+            return render(
+                request,self.template_name,{
+                    'review_form':review_form,
+                    'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add')
+                }
+            )
 
 
 

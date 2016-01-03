@@ -4,7 +4,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import TextInput,EmailInput
-from models import Customer,Business
+from models import Customer,Business,Review
+from widgets import *
+from django.forms.widgets import RadioFieldRenderer
 
 class RegistrationForm(UserCreationForm):
     class Meta:
@@ -37,4 +39,11 @@ class BusinessForm(forms.ModelForm):
             'web_address':TextInput(attrs={'class':'form-control','placeholder':'Web Address'}),
             'categories':forms.CheckboxSelectMultiple(),
         }
+
+class ReviewForm(forms.ModelForm):
+    RATING_CHOICES =((1,1),(2,2),(3,3),(4,4),(5,5),)
+    rating=forms.CharField(widget=forms.RadioSelect(renderer=StarsRadioFieldRenderer,attrs={'class':'star'},choices=RATING_CHOICES))
+    class Meta:
+        model = Review
+        fields = ('rating','review')
 

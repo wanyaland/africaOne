@@ -22,7 +22,6 @@ class Business(models.Model):
     location = GeopositionField(null=True)
     approved = models.BooleanField(default=False)
     email = models.EmailField(null=True)
-    rating = RatingField(range=5)
 
     def __unicode__(self):
         return self.name
@@ -38,6 +37,16 @@ class Event(models.Model):
     event_date = models.DateTimeField()
     def __unicode__(self):
         return self.event_name
+
+
+class Review(models.Model):
+    customer = models.ForeignKey(Customer)
+    business = models.ForeignKey(Business)
+    rating = RatingField(range=5)
+    review = models.TextField()
+    create_date = models.DateTimeField()
+    
+
 
 
 
