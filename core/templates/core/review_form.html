@@ -1,9 +1,41 @@
 {% extends 'core/base.html' %}
 {% block main %}
-<form action="{{action_url}}" method="post">
-    {% csrf_token %}
-    {{business.name}}
-    {{form.as_p}}
-    <input type="submit" value="Post"/>
-</form>
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Write a Review</h3>
+            </div>
+            <div class="panel-body">
+            <form action="{{action_url}}" method="post">
+              {% csrf_token %}
+              {{business.name}}
+              {{form.as_p}}
+              <input type="submit" value="Post"/>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Other Reviews for {{business.name}}</h3>
+            </div>
+            <div class="panel-body">
+                {% for review in reviews %}
+                <div class="row">
+                    {{review.customer}} On {{review.create_date}}
+                </div>
+                <div class="row">
+                    {{review.review}}
+                </div>
+                <div class="space-6">:q</div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}

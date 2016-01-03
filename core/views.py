@@ -96,6 +96,7 @@ class ReviewView(View):
         pk = self.kwargs.get('pk')
         business_pk = self.kwargs.get('business_pk')
         business = get_object_or_404(Business,pk=business_pk)
+        review_list = Review.objects.filter(business=business)
         if pk is None:
             review_form = ReviewForm()
         else:
@@ -107,7 +108,8 @@ class ReviewView(View):
                 'form':review_form,
                 'action_url':reverse('core:review_edit',
                                      kwargs={'pk':pk}) if pk else reverse ('core:review_add',kwargs={'business_pk':business_pk}),
-                'business':business
+                'business':business,
+                'reviews':review_list,
             }
         )
 
@@ -134,10 +136,8 @@ class ReviewView(View):
                 'field_name': 'rating',
                 'score':score,
             }
-            response=AddRatingView()(request,**params)
-            if response.status_code==200:
-                return redirect('core:review_list')
-            return {'error':9,'message':response.content}
+            AddRatingView()(request,**params)
+            return redirect('core:review_list')
         else:
             return render(
                 request,self.template_name,{
@@ -145,6 +145,7 @@ class ReviewView(View):
                     'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add',kwargs={'business_pk':business_pk})
                 }
             )
+
 
 
 
