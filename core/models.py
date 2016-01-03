@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from geoposition.fields import GeopositionField
+from djangoratings.fields import RatingField
 
 # Create your models here.
 
@@ -21,6 +22,7 @@ class Business(models.Model):
     location = GeopositionField(null=True)
     approved = models.BooleanField(default=False)
     email = models.EmailField(null=True)
+    rating = RatingField(range=5)
 
     def __unicode__(self):
         return self.name

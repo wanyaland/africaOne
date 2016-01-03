@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'geoposition',
     'admin',
+    'djangoratings',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,6 +97,8 @@ AUTHENTICATION_BACKENDS = (
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
+
+LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
