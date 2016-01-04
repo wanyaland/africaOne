@@ -14,4 +14,5 @@ urlpatterns = patterns('',
                        url(r'^review_list',ReviewListView.as_view(),name='review_list'),
                        url(r'^review_add/(?P<business_pk>\d+)/$',ReviewView.as_view(),name='review_add'),
                        url(r'^review_edit/(?P<pk>\d+)/$',ReviewView.as_view(),name='review_edit'),
+                       url(r'^review/(?P<slug>\[-w+])/$',ReviewDetail.as_view(),name='review_detail'),
                        )

@@ -49,3 +49,7 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ('rating','review')
 
+class BusinessSearchForm(forms.Form):
+    name = forms.CharField()
+    location = forms.CharField()
+

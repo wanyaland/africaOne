@@ -88,6 +88,8 @@ def add_business_successful(request):
 class ReviewListView(ListView):
     model = Business
     template_name = 'core/review_list.html'
+    
+
 
 class ReviewView(View):
 
@@ -148,6 +150,8 @@ class ReviewView(View):
             )
 
 
+class ReviewDetail(DetailView):
+    model = Review
 
 
 
