@@ -1,3 +1,12 @@
-{{review.customer}}
-<div class="star">{{review.rating}}</div>
-{{review.review}}
+
+<div class="row">
+    <div class="col-md-10">
+        <p>{{review.customer}}</p>
+        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
+        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
+        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
+        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
+        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/> On {{review.create_date}}
+        <p>{{review.review}}</p>
+    </div>
+</div>

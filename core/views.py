@@ -51,7 +51,7 @@ class BusinesView(View):
             business_form= BusinessForm()
         else:
             business = get_object_or_404(Business,pk=pk)
-            business_form = BusinessForm(instance=business)
+            business_form = BusinessForm(instance=business,files=request.FILES)
         return render(
             request,
             self.template_name,
@@ -67,9 +67,9 @@ class BusinesView(View):
         pk=self.kwargs.get('pk')
         if pk is not None:
             business = get_object_or_404(Business,pk=pk)
-            business_form = BusinessForm(instance=business,data=request.POST)
+            business_form = BusinessForm(instance=business,data=request.POST,files=request.FILES)
         else:
-            business_form = BusinessForm(request.POST)
+            business_form = BusinessForm(request.POST,request.FILES)
         if business_form.is_valid():
             business_form.save()
             return redirect('core:add_business_successful')

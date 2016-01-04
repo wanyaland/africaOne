@@ -22,17 +22,8 @@
             </div>
             <div class="panel-body">
                 {% for review in reviews %}
-                <div class="row">
-                    {{review.customer}} On {{review.create_date}}
-                </div>
-                <div class="row">
-                    {{review.review}}
-                </div>
-                <div class="star">
-                    {{review.review.score}}
-                </div>
+                {% include 'core/review_detail_snippet.html' %}
                 <div class="space-6"></div>
-
                 {% endfor %}
             </div>
         </div>
