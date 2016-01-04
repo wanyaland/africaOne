@@ -1,12 +1,17 @@
 
+
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10" id="{{review.id}}" score="{{review.rating.score}}">
         <p>{{review.customer}}</p>
-        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
-        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
-        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
-        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/>
-        <input name="review_{{review.id}}" class="star" type="radio" disabled="disabled"/> On {{review.create_date}}
+        <input name="review_{{review.id}}"  class="star" type="radio" value="1"/>
+        <input name="review_{{review.id}}" class="star" type="radio" value="2"/>
+        <input name="review_{{review.id}}" class="star" type="radio" value="3"/>
+        <input name="review_{{review.id}}" class="star" type="radio" value="4"/>
+        <input name="review_{{review.id}}" class="star" type="radio" value="5"/> On {{review.create_date}}
         <p>{{review.review}}</p>
     </div>
 </div>
+<script type="text/javascript">
+  var score = document.getElementById("{{review.id}}").getAttribute('score');
+  $("input").rating('value',score);
+</script>
