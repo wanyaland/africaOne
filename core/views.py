@@ -37,8 +37,86 @@ def sign_up(request):
     })
 
 
-class BusinessListView(ListView):
+class BusinessListView(View):
     model = Business
+    template_name = 'core/business_list.html'
+    def get(self, request, *args, **kwargs):
+        search_form = BusinessSearchForm()
+        business_list = Business.objects.all()
+        return render(request,self.template_name,
+                      {'search_form':search_form,'business_list':business_list,})
+
+    def post(self,request,*args,**kwargs):
+        name=''
+        search_form = BusinessSearchForm(request.POST)
+        if search_form.is_valid():
+            name=search_form.cleaned_data['name']
+        business_list = Business.objects.filter(name=name)
+        return render(request,
+                      self.template_name,{
+                          'search_form':search_form,
+                          'business_list':business_list,
+                      })
+
+
+class BusinessUserView(View):
+    template_name = 'core/business_user.html'
+
+    def get(self,request,*args,**kwargs):
+        customer = Customer.objects.filter(user=request.user)
+        pk = self.kwargs.get('pk')
+        if pk is None:
+            business_form = BusinessForm()
+            review_form = ReviewForm()
+        else:
+            review = get_object_or_404(Review,pk=pk)
+            business = Review.objects.filter(review=review,customer=customer)
+            review_form = ReviewForm(instance=review)
+            business_form = BusinessForm(instance=business)
+        return render(
+            request,
+            self.template_name,{
+               'review_form':review_form,
+                'business_form':business_form,
+                'action_url':reverse('core:business_user_edit',kwargs={'pk':pk}) if pk else reverse('core:business_user_add')
+            }
+        )
+
+    def post(self,request,*args,**kwargs):
+        customer = Customer.objects.filter(user=request.user)
+        pk = self.kwargs.get('pk')
+        if pk is None:
+            review_form = ReviewForm(request.POST)
+            business_form = BusinessForm(request.POST,request.FILES)
+        else:
+            review = get_object_or_404(Review,pk=pk)
+            business = Review.objects.filter(review=review,customer=customer)
+            review_form = ReviewForm(instance=review,data=request.POST)
+            business_form = BusinessForm(instance=business,data=request.POST,files=request.FILES)
+        if business_form.is_valid() and review_form.is_valid():
+            review = review_form.save(commit=False)
+            business = business_form.save()
+            review.business= business
+            review.customer = Customer.objects.get(user=request.user)
+            review.save()
+            review_type = ContentType.objects.get_for_model(review)
+            score = review.POST['rating']
+            params = {
+                'content_type_id':review_type.id,
+                'object_id':review.id,
+                'field_name': 'rating',
+                'score':score,
+            }
+            AddRatingView()(request,**params)
+            return redirect('core:business_user_list')
+        else:
+            return render(request,
+                      self.template_name,{
+                        'review_form':review_form,
+                        'business_form':business_form,
+                        'action_url':reverse('core:business_user_edit',kwargs={'pk':pk}) if pk else reverse('core:business_user_add'),
+                      })
+
 
 
 class BusinesView(View):
