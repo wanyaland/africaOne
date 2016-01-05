@@ -41,15 +41,14 @@ class BusinessForm(forms.ModelForm):
         }
 
 class ReviewForm(forms.ModelForm):
-    RATING_CHOICES =((1,1),(2,2),(3,3),(4,4),(5,5),)
-    rating=forms.CharField(widget=forms.RadioSelect(renderer=StarsRadioFieldRenderer,attrs={'class':'star'},choices=RATING_CHOICES))
-
-    #rating = forms.ChoiceField(choices=RATING_CHOICES, widget=forms.RadioSelect(attrs={'class':'star'}))
+    rating = forms.CharField(widget=forms.NumberInput(attrs={'class':'rating','data-min':'1','data-max':'5','step':'1','type':'number','id':'input-id','data-size':'xs',}))
     class Meta:
         model = Review
         fields = ('rating','review')
 
 class BusinessSearchForm(forms.Form):
-    name = forms.CharField()
-    location = forms.CharField()
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name'}))
+    location = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Near:'}))
+
+
 

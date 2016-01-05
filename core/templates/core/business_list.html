@@ -4,8 +4,8 @@
 <form action="{% url 'core:business_list' %}" method="post">{%csrf_token%}
     <!--<label for="id_business_name">Name</label>-->
     <!--<input type="text" name="business_name" id="id_business_name"/>-->
-    {{form.business_name}}
-    <input class="btn btn-sm btn-primary" type="submit" value="Find"/>
+    {{search_form.name}}{{search_form.location}}
+    <input class="btn btn-sm btn-primary" type="submit" value="Search"/>
 </form>
 <p>
    Cant find your business? <a href="{% url 'core:business_add'%}">Add Your Business </a>

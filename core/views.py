@@ -108,7 +108,7 @@ class BusinessUserView(View):
                 'score':score,
             }
             AddRatingView()(request,**params)
-            return redirect('core:business_user_list')
+            return redirect('core:review_list')
         else:
             return render(request,
                       self.template_name,{
