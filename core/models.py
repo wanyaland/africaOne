@@ -22,6 +22,7 @@ class Business(models.Model):
     location = GeopositionField(null=True)
     approved = models.BooleanField(default=False)
     email = models.EmailField(null=True)
+    business_photos = models.ForeignKey('BusinessPhoto',null=True)
 
     def __unicode__(self):
         return self.name
@@ -44,6 +45,9 @@ class Review(models.Model):
     rating = RatingField(range=5)
     review = models.TextField()
     create_date = models.DateTimeField(auto_now_add=True)
+
+class BusinessPhoto(models.Model):
+    photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
 
     
 
