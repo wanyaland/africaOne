@@ -1,11 +1,10 @@
 #!/home/wanyama/workspace/africa_one/env/bin/python
-
-# -*- coding: utf-8 -*-
-import re
+# EASY-INSTALL-ENTRY-SCRIPT: 'fake-factory==0.5.3','console_scripts','faker'
+__requires__ = 'fake-factory==0.5.3'
 import sys
-
-from faker.cli import execute_from_command_line
+from pkg_resources import load_entry_point
 
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(execute_from_command_line())
+    sys.exit(
+        load_entry_point('fake-factory==0.5.3', 'console_scripts', 'faker')()
+    )

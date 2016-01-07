@@ -30,23 +30,20 @@ TIME_ZONE = 'Africa/Kampala'
 # Application definition
 
 INSTALLED_APPS = (
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'south',
-    #'review',
-    #'hvad',
-    #'user_media',
-    #'generic_positions',
-    'social.apps.django_app.default',
+    #'admin',
     'geoposition',
-    'admin',
     'djangoratings',
+    'south',
+    'social.apps.django_app.default',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
