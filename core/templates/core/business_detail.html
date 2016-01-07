@@ -1,0 +1,26 @@
+{% extends 'core/base.html'%}
+{% block main %}
+<div class="row">
+    <div class="col-md-12">
+        <!--photo carausels -->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <!-- Business description -->
+            {{business.name}}
+            <br>
+            <input class="rating" value="{{review.rating.votes}}"/>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
