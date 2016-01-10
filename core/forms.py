@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import TextInput,EmailInput
-from models import Customer,Business,Review
+from models import Customer,Business,Review,BusinessPhoto
 from widgets import *
 from django.forms.widgets import RadioFieldRenderer
 
@@ -41,7 +41,7 @@ class BusinessForm(forms.ModelForm):
         }
 
 class ReviewForm(forms.ModelForm):
-    rating = forms.CharField(widget=forms.NumberInput(attrs={'class':'rating','data-min':'1','data-max':'5','step':'1','type':'number','id':'input-id','data-size':'xs',}))
+    rating = forms.CharField(widget=forms.NumberInput(attrs={'class':'rating','data-min':'1','data-max':'5','step':'0.5','type':'number','id':'input-id','data-size':'xs',}))
     class Meta:
         model = Review
         fields = ('rating','review')
@@ -49,6 +49,11 @@ class ReviewForm(forms.ModelForm):
 class BusinessSearchForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name'}))
     location = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Near:'}))
+
+class PhotoForm(forms.ModelForm):
+    class Meta:
+        model=BusinessPhoto
+        fields=('photo',)
 
 
 

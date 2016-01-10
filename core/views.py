@@ -231,6 +231,32 @@ class ReviewView(View):
 class ReviewDetail(DetailView):
     model = Review
 
+class BusinessDetail(DetailView):
+    model = Business
+
+
+def add_photo(request,**kwargs):
+    if request.method=='POST':
+        customer = Customer.objects.get(user=request.user)
+        form = PhotoForm(request.POST,request.FILES)
+        pk = kwargs.get('pk')
+        business= get_object_or_404(Business,pk=pk)
+        business_photo=form.save(commit=False)
+        business_photo.business= business
+        business_photo.customer = customer
+        business_photo.save()
+        return redirect('core:business_detail',kwargs={'pk':business.pk})
+    else:
+        pk = kwargs.get('pk')
+        business= get_object_or_404(Business,pk=pk)
+        form = PhotoForm(request.FILES)
+    return render(request,'core/business_photo.html',{
+        'form':form,
+        'business':business,
+    })
+
+
+
 
 
 

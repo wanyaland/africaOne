@@ -16,4 +16,6 @@ urlpatterns = patterns('',
                        url(r'^review_edit/(?P<pk>\d+)/$',ReviewView.as_view(),name='review_edit'),
                        url(r'^business-user-edit/(?P<pk>\d+)/$',BusinessUserView.as_view(),name='business_user_edit'),
                        url(r'business-user-add',BusinessUserView.as_view(),name='business_user_add'),
+                       url(r'business-detail/(?P<pk>\d+)/$',BusinessDetail.as_view(),name='business_detail'),
+                       url(r'add-photo/(?P<pk>\d+)/$',add_photo,name='add_photo'),
                        )

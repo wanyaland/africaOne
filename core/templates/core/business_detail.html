@@ -1,26 +1,94 @@
 {% extends 'core/base.html'%}
 {% block main %}
 <div class="row">
-    <div class="col-md-12">
+
         <!--photo carausels -->
+        	<!-- thumb navigation carousel -->
+    <div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
+
+            <!-- thumb navigation carousel items -->
+          <ul class="list-inline">
+              {% for business_photo in business.businessPhoto_set.all %}
+               <li> <a id="carousel-selector-{{business_photo.id}}">
+                  <img src="{{business_photo.photo.url}}&amp;text=one" class="img-responsive">
+               </a></li>
+              {% endfor %}
+          </ul>
     </div>
+
 </div>
 <div class="row">
     <div class="col-md-8">
         <div class="row">
             <!-- Business description -->
-            {{business.name}}
+            <div class="col-md-4">
+                {{business.name}}
             <br>
-            <input class="rating" value="{{review.rating.votes}}"/>
+            <input class="rating" value="{{business.get_avg_rating}}" data-disabled="true" data-size="xs" />  <span>{{business.get_no_reviews}} reviews</span>
+            </div>
+            <div class="col-md-6">
+                <p>{{business.address}}</p>
+                <p>{{business.city}}</p>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{business.description}}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Reviews</h3>
+            </div>
+            <div class="panel-body">
+                 <h4>Sort by Date Rating</h4>
+                <input type="text">
+                <br>
+                 Start your review of {{business.name}}
+                <input class="rating " data-size="xs" step="1" min="1" max="5" />
+                <br>
+                 {% for review in business.review_set.all %}
+                {% include 'core/review_detail_snippet.html' %}
+                <div class="space-6"></div>
+                {% endfor %}
+            </div>
+        </div>
+
+
     </div>
     <div class="col-md-4">
         <div class="row">
+            <input class="rating"  data-size="xs" /> Click stars to rate
+            <div class="space-3"/>
+            <a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn-sm btn-primary">Write a Review</a>
+            <a href="{%url 'core:add_photo' pk=business.pk %}" class="btn-sm btn-primary">Add a photo</a>
+        </div>
+        <br>
+        <div class="panel panel-default">
+            {{business.location}}
+        </div>
+        <br>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Business Features</h3>
+                    <div class="panel-body">
+                        {% for feature in business.features.all %}
+                           {{feature}}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Check out similar businesses</h3>
+                    <div class="panel-body">
 
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

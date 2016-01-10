@@ -73,7 +73,7 @@ DATABASES = {
         'PASSWORD':'africaone',
         'HOST':'localhost',
         'PORT':'',
-    }
+    },
 }
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -139,3 +139,5 @@ GEOPOSITION_MAP_OPTIONS = {
 GEOPOSITION_MARKER_OPTIONS = {
     'cursor': 'move'
 }
+
+SOUTH_TESTS_MIGRATE = False
