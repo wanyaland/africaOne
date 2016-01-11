@@ -55,12 +55,12 @@ class Review(models.Model):
     business = models.ForeignKey(Business,null=True)
     rating = RatingField(range=5,can_change_vote=True,allow_delete=True)
     review = models.TextField()
+    photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True)
 
 class BusinessPhoto(models.Model):
     photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
-    business = models.ForeignKey(Business,null=True)
-    customer = models.ForeignKey(Customer,null=True)
+    review = models.ForeignKey(Review,null=True)
 
 class Features(models.Model):
     name = models.CharField(max_length=255)

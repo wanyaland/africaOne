@@ -45,10 +45,15 @@
                 <input type="text">
                 <br>
                  Start your review of {{business.name}}
-                <input class="rating " data-size="xs" step="1" min="1" max="5" />
+                <input type="button" class="rating btn-primary" data-size="xs" step="1" min="1" max="5" alt="Submit your reviews"/>
                 <br>
                  {% for review in business.review_set.all %}
                 {% include 'core/review_detail_snippet.html' %}
+                {% if user_review_photos %}
+                {% for photo in review.businessphoto_set.all %}
+                <img src="{{photo.url}}" height="50" width="50">
+                {% endfor %} {% endif %}
+                <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/></p>
                 <div class="space-6"></div>
                 {% endfor %}
             </div>
@@ -62,6 +67,8 @@
             <div class="space-3"/>
             <a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn-sm btn-primary">Write a Review</a>
             <a href="{%url 'core:add_photo' pk=business.pk %}" class="btn-sm btn-primary">Add a photo</a>
+            <a href="#" class="btn-sm btn-primary">Share</a>
+
         </div>
         <br>
         <div class="panel panel-default">
@@ -72,20 +79,25 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Business Features</h3>
-                    <div class="panel-body">
+                </div>
+                <div class="panel-body">
                         {% for feature in business.features.all %}
                            {{feature}}
                         {% endfor %}
-                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Check out similar businesses</h3>
-                    <div class="panel-body">
-
-                    </div>
                 </div>
+                <div class="panel-body">
+                        {% for category in business.categories.all %}
+                        {% for business_object in category.business_set.all%}
+                        {% if business_object != business %} business_object.name{% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                </div>
+
             </div>
         </div>
     </div>

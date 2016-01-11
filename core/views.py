@@ -237,23 +237,37 @@ class BusinessDetail(DetailView):
 
 def add_photo(request,**kwargs):
     if request.method=='POST':
-        customer = Customer.objects.get(user=request.user)
         form = PhotoForm(request.POST,request.FILES)
         pk = kwargs.get('pk')
-        business= get_object_or_404(Business,pk=pk)
+        review= get_object_or_404(Review,pk=pk)
         business_photo=form.save(commit=False)
-        business_photo.business= business
-        business_photo.customer = customer
+        business_photo.review = review
         business_photo.save()
-        return redirect('core:business_detail',kwargs={'pk':business.pk})
+        return redirect('core:business_detail',kwargs={'pk':review.pk})
     else:
         pk = kwargs.get('pk')
-        business= get_object_or_404(Business,pk=pk)
+        review= get_object_or_404(Review,pk=pk)
         form = PhotoForm(request.FILES)
     return render(request,'core/business_photo.html',{
         'form':form,
-        'business':business,
+        'review':review,
     })
+
+
+def sort_review(request,**kwargs):
+    sort_by = kwargs.get('sort_by')
+    pk = kwargs.get('pk')
+    if pk:
+        business = get_object_or_404(Business,pk=pk)
+    if sort_by=='score':
+        review_list = business.review_set.all().order_by('rating.score')
+    elif sort_by=='date':
+        review_list = business.review_set.all().order_by('created_date')
+
+    return render(request,'core/business_detail',{
+        'review_list':review_list,
+    })
+
 
 
 
