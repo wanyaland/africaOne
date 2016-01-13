@@ -44,7 +44,7 @@ class ReviewForm(forms.ModelForm):
     rating = forms.CharField(widget=forms.NumberInput(attrs={'class':'rating','data-min':'1','data-max':'5','step':'0.5','type':'number','id':'input-id','data-size':'xs',}))
     class Meta:
         model = Review
-        fields = ('rating','review')
+        fields = ('rating','review','photo')
 
 class BusinessSearchForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Name'}))

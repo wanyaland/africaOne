@@ -232,8 +232,25 @@ class ReviewDetail(DetailView):
     model = Review
 
 class BusinessDetail(DetailView):
+
+    template_name = 'core/business_detail.html'
     model = Business
 
+    def get_context_data(self, **kwargs):
+        context = super(BusinessDetail,self).get_context_data(**kwargs)
+        self.business =self.get_object()
+        self.reviews = self.business.review_set.all()
+        self.categories = self.business.categories
+        context['reviews'] = self.reviews
+        business_set = []
+        categories = self.categories.all()
+
+        for category in categories:
+            for business in category.business_set.all():
+                if business!= self.business:
+                    business_set.append(business)
+        context['business_set']= business_set
+        return context
 
 def add_photo(request,**kwargs):
     if request.method=='POST':
@@ -262,14 +279,28 @@ def sort_review(request,**kwargs):
     if sort_by=='score':
         review_list = business.review_set.all().order_by('rating.score')
     elif sort_by=='date':
-        review_list = business.review_set.all().order_by('created_date')
+        review_list = business.review_set.all().order_by('create_date')
 
     return render(request,'core/business_detail',{
         'review_list':review_list,
     })
 
+class UserDetail(DetailView):
+    template_name = 'core/user_detail.html'
+    model=Customer
 
+class UserList(ListView):
+    template_name = 'core/user_list.html'
+    model = Customer
 
+class EventDetail(DetailView):
+    model = Event
+
+class EventList(ListView):
+    model = Event
+
+class ClaimBusinessList(ListView):
+    model=Business
 
 
 

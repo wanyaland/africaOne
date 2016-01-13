@@ -1,0 +1,52 @@
+{% extends 'core/base.html'%}
+{% load ratings %}
+
+{% block main %}
+<div class="row">
+    <div class="col-md-3">
+        <img src="{{customer.photo.url}}" height="200" width="200"/>
+    </div>
+    <div class="col-md-5">
+        <br><br>
+        {{customer.user.first_name}} {{customer.user.last_name}}<br>
+        {{customer.user.email}}<br>
+        On Africaone since {{customer.user.date_joined}}<br>
+        {% rating_by_user customer.user on customer.review.rating as vote %} reviews<br><br>
+        <a class="btn-sm btn-primary" href="#">Follow this User</a>
+    </div>
+    <div class="col-md-4">
+        <h4>Things I Love</h4>
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-body">
+            {% for review in customer.review_set.all %}
+            {{review.business.name}}
+            <br>
+            {% for category in review.business.categories.all %}
+            {{category}}
+            <br>
+            {{review.business.address}}<br>
+            {{review.busines.city}}<br>
+            <input class="rating" disabled="true" value="{{review.business.get_avg_rating}}" data-size="xs">
+              Reviewed on {{review.create_date}}<br>
+            {{review.business.description}}<br>
+            <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/></p>
+            <br>
+            <br>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+
+</div>
+<div class="row">
+    
+</div>
+
+{% endblock %}

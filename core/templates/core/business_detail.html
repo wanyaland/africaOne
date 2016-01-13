@@ -8,12 +8,14 @@
 
             <!-- thumb navigation carousel items -->
           <ul class="list-inline">
-              {% for business_photo in business.businessPhoto_set.all %}
                <li> <a id="carousel-selector-{{business_photo.id}}">
-                  <img src="{{business_photo.photo.url}}&amp;text=one" class="img-responsive">
+                  <img src="{{business_photo.photo.url}}" class="img-responsive">
                </a></li>
-              {% endfor %}
+               <li> <a id="carousel-selector-{2">
+                  <img src="{{business_photo.photo.url}}" class="img-responsive">
+               </a></li>
           </ul>
+
     </div>
 
 </div>
@@ -41,18 +43,19 @@
                 <h3 class="panel-title">Reviews</h3>
             </div>
             <div class="panel-body">
-                 <h4>Sort by Date Rating</h4>
-                <input type="text">
+                <form method="get">
+                   <h4>Sort by <input type="checkbox" name="sort" value="date"> Date <input type="checkbox" name="sort" value="create_date"> Rating</h4>
+                    <input type="submit" value="Sort">
+                </form>
                 <br>
                  Start your review of {{business.name}}
                 <input type="button" class="rating btn-primary" data-size="xs" step="1" min="1" max="5" alt="Submit your reviews"/>
                 <br>
-                 {% for review in business.review_set.all %}
+                {% for review in reviews %}
                 {% include 'core/review_detail_snippet.html' %}
-                {% if user_review_photos %}
-                {% for photo in review.businessphoto_set.all %}
+                {% for photo in review.businesssphoto_set.all %}
                 <img src="{{photo.url}}" height="50" width="50">
-                {% endfor %} {% endif %}
+                {% endfor %}
                 <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/></p>
                 <div class="space-6"></div>
                 {% endfor %}
@@ -91,13 +94,13 @@
                     <h3 class="panel-title">Check out similar businesses</h3>
                 </div>
                 <div class="panel-body">
-                        {% for category in business.categories.all %}
-                        {% for business_object in category.business_set.all%}
-                        {% if business_object != business %} business_object.name{% endif %}
-                        {% endfor %}
-                        {% endfor %}
+                    {% for business in business_set %}
+                       <a href="{% url 'core:business_detail' pk=business.pk %}"> {{business.name}} </a>
+                       <input class="rating" disabled="True" value="{{business.get_avg_reviews}}" data-size="xs"/>
+                       {{business.get_no_reviews}} reviews
+                       <p>{{business.description}}</p>
+                    {% endfor %}
                 </div>
-
             </div>
         </div>
     </div>
