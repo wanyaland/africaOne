@@ -2,7 +2,7 @@
 {% block main %}
 <form action="{% url 'core:review_list' %}" method="post">{%csrf_token%}
     {{form.business_name}}
-    <input class="btn btn-sm btn-primary" type="submit" value="Find"/>
+    <input class="btn-sm btn-primary" type="submit" value="Find"/>
 </form>
 </br>
 
@@ -10,7 +10,7 @@
 <div class="col-md-8">
        <ul class="list-group">
            {% for business in business_list %}
-           <li class="list-group-item">{{business}}</br><a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn btn-primary">Review Business</a> {{business.address}}
+           <li class="list-group-item">{{business}}</br><a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn-sm btn-primary">Review Business</a> {{business.address}}
            {{business.city}}</li>
            {% endfor %}
        </ul>
@@ -24,7 +24,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             If the business is not here add it <br>
-            <a href="{% url 'core:business_user_add'%}" class="btn btn-primary">Add a Business</a>
+            <a href="{% url 'core:business_user_add'%}" class="btn-sm btn-primary">Add a Business</a>
         </div>
     </div>
 </div>

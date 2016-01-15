@@ -231,6 +231,77 @@ class ReviewView(View):
 class ReviewDetail(DetailView):
     model = Review
 
+class BusinessDetail(DetailView):
+
+    template_name = 'core/business_detail.html'
+    model = Business
+
+    def get_context_data(self, **kwargs):
+        context = super(BusinessDetail,self).get_context_data(**kwargs)
+        self.business =self.get_object()
+        self.reviews = self.business.review_set.all()
+        self.categories = self.business.categories
+        context['reviews'] = self.reviews
+        business_set = []
+        categories = self.categories.all()
+
+        for category in categories:
+            for business in category.business_set.all():
+                if business!= self.business:
+                    business_set.append(business)
+        context['business_set']= business_set
+        return context
+
+def add_photo(request,**kwargs):
+    if request.method=='POST':
+        form = PhotoForm(request.POST,request.FILES)
+        pk = kwargs.get('pk')
+        review= get_object_or_404(Review,pk=pk)
+        business_photo=form.save(commit=False)
+        business_photo.review = review
+        business_photo.save()
+        return redirect('core:business_detail',kwargs={'pk':review.pk})
+    else:
+        pk = kwargs.get('pk')
+        review= get_object_or_404(Review,pk=pk)
+        form = PhotoForm(request.FILES)
+    return render(request,'core/business_photo.html',{
+        'form':form,
+        'review':review,
+    })
+
+
+def sort_review(request,**kwargs):
+    sort_by = kwargs.get('sort_by')
+    pk = kwargs.get('pk')
+    if pk:
+        business = get_object_or_404(Business,pk=pk)
+    if sort_by=='score':
+        review_list = business.review_set.all().order_by('rating.score')
+    elif sort_by=='date':
+        review_list = business.review_set.all().order_by('create_date')
+
+    return render(request,'core/business_detail',{
+        'review_list':review_list,
+    })
+
+class UserDetail(DetailView):
+    template_name = 'core/user_detail.html'
+    model=Customer
+
+class UserList(ListView):
+    template_name = 'core/user_list.html'
+    model = Customer
+
+class EventDetail(DetailView):
+    model = Event
+
+class EventList(ListView):
+    model = Event
+
+class ClaimBusinessList(ListView):
+    model=Business
+
 
 
 

@@ -28,7 +28,7 @@
         <tbody>
         {% for business in business_list %}
         <tr>
-            <td>{{business.name}}</td>
+            <td><a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a> </td>
             <td>{{business.address}}</td>
             <td>{{business.email}}</td>
             <td>{{business.city}}</td>
