@@ -53,10 +53,10 @@
                 <br>
                 {% for review in reviews %}
                 {% include 'core/review_detail_snippet.html' %}
-                {% for photo in review.businesssphoto_set.all %}
-                <img src="{{photo.url}}" height="50" width="50">
-                {% endfor %}
-                <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/></p>
+                {% if review.photo%}
+                <img src="{{review.photo.url}}" height="100" width="100">
+                {% endif %}
+                <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/>  </p>
                 <div class="space-6"></div>
                 {% endfor %}
             </div>
@@ -69,7 +69,7 @@
             <input class="rating"  data-size="xs" /> Click stars to rate
             <div class="space-3"/>
             <a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn-sm btn-primary">Write a Review</a>
-            <a href="{%url 'core:add_photo' pk=business.pk %}" class="btn-sm btn-primary">Add a photo</a>
+            <a href="#" class="btn-sm btn-primary">Add a photo</a>
             <a href="#" class="btn-sm btn-primary">Share</a>
 
         </div>
@@ -96,7 +96,7 @@
                 <div class="panel-body">
                     {% for business in business_set %}
                        <a href="{% url 'core:business_detail' pk=business.pk %}"> {{business.name}} </a>
-                       <input class="rating" disabled="True" value="{{business.get_avg_reviews}}" data-size="xs"/>
+                       <input class="rating" disabled="True" value="{{business.get_avg_rating}}" data-size="xs"/>
                        {{business.get_no_reviews}} reviews
                        <p>{{business.description}}</p>
                     {% endfor %}

@@ -55,7 +55,6 @@ class Review(models.Model):
     business = models.ForeignKey(Business,null=True)
     rating = RatingField(range=5,can_change_vote=True,allow_delete=True)
     review = models.TextField()
-    photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True)
 
 class BusinessPhoto(models.Model):
