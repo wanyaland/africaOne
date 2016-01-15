@@ -4,7 +4,9 @@
 {% block main %}
 <div class="row">
     <div class="col-md-3">
+        {% if customer.photo %}
         <img src="{{customer.photo.url}}" height="200" width="200"/>
+        {% endif %}
     </div>
     <div class="col-md-5">
         <br><br>
@@ -35,7 +37,7 @@
             <input class="rating" disabled="true" value="{{review.business.get_avg_rating}}" data-size="xs">
               Reviewed on {{review.create_date}}<br>
             {{review.business.description}}<br>
-            <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/></p>
+            <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/>     <a href="#" class="btn-sm btn-primary">Share this review</a> </p>
             <br>
             <br>
             {% endfor %}

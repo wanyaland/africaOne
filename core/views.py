@@ -8,6 +8,8 @@ from django.views.generic import *
 from django.core.urlresolvers import reverse
 from djangoratings.views import AddRatingView,AddRatingFromModel
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q
+
 
 
 def index(request):
@@ -37,26 +39,10 @@ def sign_up(request):
     })
 
 
-class BusinessListView(View):
+class BusinessListView(ListView):
     model = Business
-    template_name = 'core/business_list.html'
-    def get(self, request, *args, **kwargs):
-        search_form = BusinessSearchForm()
-        business_list = Business.objects.all()
-        return render(request,self.template_name,
-                      {'search_form':search_form,'business_list':business_list,})
-
-    def post(self,request,*args,**kwargs):
-        name=''
-        search_form = BusinessSearchForm(request.POST)
-        if search_form.is_valid():
-            name=search_form.cleaned_data['name']
-        business_list = Business.objects.filter(name=name)
-        return render(request,
-                      self.template_name,{
-                          'search_form':search_form,
-                          'business_list':business_list,
-                      })
+    def get_queryset(self):
+        return Business.objects.filter(Business,name=self.args[0])
 
 
 class BusinessUserView(View):
@@ -78,7 +64,7 @@ class BusinessUserView(View):
             self.template_name,{
                'review_form':review_form,
                 'business_form':business_form,
-                'action_url':reverse('core:business_user_edit',kwargs={'pk':pk}) if pk else reverse('core:business_user_add')
+                'action_url':reverse('core:business_user_edit',kwargs={'pk':pk}) if pk else reverse('core:business_user_add'),
             }
         )
 
@@ -168,66 +154,6 @@ class ReviewListView(ListView):
     template_name = 'core/review_list.html'
     
 
-
-class ReviewView(View):
-
-    template_name='core/review_form.html'
-
-    def get(self,request,*args,**kwargs):
-        pk = self.kwargs.get('pk')
-        business_pk = self.kwargs.get('business_pk')
-        business = get_object_or_404(Business,pk=business_pk)
-        review_list = Review.objects.filter(business=business)
-        if pk is None:
-            review_form = ReviewForm()
-        else:
-            review = get_object_or_404(Review,pk=pk)
-            review_form = ReviewForm(instance=review)
-        return render(
-            request,
-            self.template_name,{
-                'form':review_form,
-                'action_url':reverse('core:review_edit',
-                                     kwargs={'pk':pk}) if pk else reverse ('core:review_add',kwargs={'business_pk':business_pk}),
-                'business':business,
-                'reviews':review_list,
-            }
-        )
-
-    def post(self,request,*args,**kwargs):
-        pk = self.kwargs.get('pk')
-        business_pk = self.kwargs.get('business_pk')
-        if pk is not None:
-            review = get_object_or_404(Review,pk=pk)
-            review_form = ReviewForm(instance=review,data=request.POST)
-        else:
-            review_form = ReviewForm(request.POST)
-        if review_form.is_valid():
-            review=review_form.save(commit=False)
-            business_pk=self.kwargs.get('business_pk')
-            business = get_object_or_404(Business,pk=business_pk)
-            review.business = business
-            review.customer = Customer.objects.get(user=request.user)
-            review.save()
-            review_type = ContentType.objects.get_for_model(review)
-            score = request.POST['rating']
-            params = {
-                'content_type_id':review_type.id,
-                'object_id':review.id,
-                'field_name': 'rating',
-                'score':score,
-            }
-            AddRatingView()(request,**params)
-            return redirect('core:review_list')
-        else:
-            return render(
-                request,self.template_name,{
-                    'review_form':review_form,
-                    'action_url':reverse('core:review_edit',kwargs={'pk':pk}) if pk else reverse('core:review_add',kwargs={'business_pk':business_pk})
-                }
-            )
-
-
 class ReviewDetail(DetailView):
     model = Review
 
@@ -252,39 +178,6 @@ class BusinessDetail(DetailView):
         context['business_set']= business_set
         return context
 
-def add_photo(request,**kwargs):
-    if request.method=='POST':
-        form = PhotoForm(request.POST,request.FILES)
-        pk = kwargs.get('pk')
-        review= get_object_or_404(Review,pk=pk)
-        business_photo=form.save(commit=False)
-        business_photo.review = review
-        business_photo.save()
-        return redirect('core:business_detail',kwargs={'pk':review.pk})
-    else:
-        pk = kwargs.get('pk')
-        review= get_object_or_404(Review,pk=pk)
-        form = PhotoForm(request.FILES)
-    return render(request,'core/business_photo.html',{
-        'form':form,
-        'review':review,
-    })
-
-
-def sort_review(request,**kwargs):
-    sort_by = kwargs.get('sort_by')
-    pk = kwargs.get('pk')
-    if pk:
-        business = get_object_or_404(Business,pk=pk)
-    if sort_by=='score':
-        review_list = business.review_set.all().order_by('rating.score')
-    elif sort_by=='date':
-        review_list = business.review_set.all().order_by('create_date')
-
-    return render(request,'core/business_detail',{
-        'review_list':review_list,
-    })
-
 class UserDetail(DetailView):
     template_name = 'core/user_detail.html'
     model=Customer
@@ -301,6 +194,69 @@ class EventList(ListView):
 
 class ClaimBusinessList(ListView):
     model=Business
+
+def search_business(request):
+    query = request.GET.get('q','')
+    if query:
+        qset = (
+            Q(name__icontains=query)
+        )
+        results = Business.objects.filter(qset).distinct()
+    else:
+        results =[]
+    return render(request,'core/business_list.html',{
+        'results':results,
+        'query':query,
+    })
+
+
+class ReviewCreate(CreateView):
+    form_class = ReviewForm
+    template_name = 'core/review_form.html'
+
+    def get_success_url(self):
+        return reverse('core:review_list')
+
+    def get_context_data(self, **kwargs):
+        pk = self.kwargs.get('business_pk')
+        business = get_object_or_404(Business,pk=pk)
+        review_list = Review.objects.filter(business=business)
+        context = super(CreateView,self).get_context_data(**kwargs)
+        context['business']=business
+        context['reviews']=review_list
+        return context
+
+    def form_valid(self,form):
+        form.instance.customer = get_object_or_404(Customer,user=self.request.user)
+        context = self.get_context_data()
+        form.instance.business = context['business']
+        #form.instance.rating.add(score=self.request.POST['rating'],user=self.request.user,ip_address=self.request.META['REMOTE_ADDR'])
+        image_list = self.request.FILES.getlist('files')
+        response=super(ReviewCreate,self).form_valid(form)
+        review_type = ContentType.objects.get_for_model(self.object)
+        score = self.request.POST['rating']
+        params = {
+                'content_type_id':review_type.id,
+                'object_id':self.object.id,
+                'field_name': 'rating',
+                'score':score,
+         }
+        AddRatingView()(self.request,**params)
+        for file in image_list:
+            BusinessPhoto.objects.create(photo=file,review=self.object)
+
+        return response
+
+
+class ReviewEdit(UpdateView):
+    form_class=ReviewForm
+    template_name = 'core/review_form.html'
+
+
+
+
+
+
 
 
 

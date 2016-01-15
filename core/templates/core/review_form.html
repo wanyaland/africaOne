@@ -19,7 +19,8 @@
             <form action="{{action_url}}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
               {% include "core/review_snippet.html" %}
-                {{form.photo}}
+                Select Images:
+                {{form.files}}
                 <br>
               <input type="submit" value="Post"/>
             </form>
@@ -38,7 +39,6 @@
                 {% endfor %}
             </div>
         </div>
-
     </div>
 </div>
 
