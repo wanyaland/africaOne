@@ -2,3 +2,5 @@
 **/*.py~
 **/*.idea
 **/*.orig
+**/*.DS_Store
+**/settings.py

@@ -55,7 +55,6 @@ class Review(models.Model):
     business = models.ForeignKey(Business,null=True)
     rating = RatingField(range=5,can_change_vote=True,allow_delete=True)
     review = models.TextField()
-    photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True)
 
 class BusinessPhoto(models.Model):
@@ -66,6 +65,20 @@ class Features(models.Model):
     name = models.CharField(max_length=255)
     def  __unicode__(self):
         return self.name
+
+class EventCategory(models.Model):
+    name = models.CharField(max_length=255)
+
+class Event(models.Model):
+    name = models.CharField(max_length=20)
+    categories= models.ManyToManyField(EventCategory)
+    event_date = models.DateTimeField()
+    where = models.CharField(max_length=50)
+    description = models.TextField()
+    website_url = models.URLField()
+    price = models.IntegerField()
+
+
 
 
 

@@ -1,17 +1,17 @@
 {% extends 'core/base.html' %}
 {% block main %}
 <div class="inline position-relative">
-<form action="{% url 'core:business_list' %}" method="post">{%csrf_token%}
-    <!--<label for="id_business_name">Name</label>-->
-    <!--<input type="text" name="business_name" id="id_business_name"/>-->
-    {{search_form.name}}{{search_form.location}}
-    <input class="btn btn-sm btn-primary" type="submit" value="Search"/>
+<form action="." method="GET">
+    <label for="q">Name:</label>
+    <input type="text" name="q" value="{{query|escape}}">
+    <input type="submit" value="Find Business" class="btn-sm btn-primary">
 </form>
 <p>
    Cant find your business? <a href="{% url 'core:business_add'%}">Add Your Business </a>
 </p>
 </div>
 
+{% if query %}
 <div class="table-header">
     Business List
 </div>
@@ -26,7 +26,8 @@
         </tr>
         </thead>
         <tbody>
-        {% for business in business_list %}
+        {% if results %}
+        {% for business in results %}
         <tr>
             <td><a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a> </td>
             <td>{{business.address}}</td>
@@ -34,8 +35,10 @@
             <td>{{business.city}}</td>
         </tr>
         {% endfor %}
+        {% endif %}
         </tbody>
     </table>
-</div>
 
+</div>
+  {% endif %}
 {% endblock %}
