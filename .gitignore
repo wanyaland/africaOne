@@ -2,3 +2,4 @@
 **/*.py~
 **/*.idea
 **/*.orig
+africa_one/settings.py
