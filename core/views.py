@@ -241,11 +241,8 @@ class ReviewCreate(CreateView):
                 'score':score,
          }
         AddRatingView()(self.request,**params)
-<<<<<<< HEAD
         for file in image_list:
             BusinessPhoto.objects.create(photo=file,review=self.object)
-=======
->>>>>>> parent of 68a74a9... multiple files upload
         return response
 
 
