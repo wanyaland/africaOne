@@ -15,3 +15,17 @@ padding:0px;
   margin:10px 0px;
   font-size:25px;
 }
+
+.display-table{
+display:table;
+padding:0px;
+}
+
+.display-table-row{
+display:table-row;
+}
+
+.display-table-cell{
+display:table-cell;
+}
+

@@ -66,6 +66,20 @@ class Features(models.Model):
     def  __unicode__(self):
         return self.name
 
+class EventCategory(models.Model):
+    name = models.CharField(max_length=255)
+
+class Event(models.Model):
+    name = models.CharField(max_length=20)
+    categories= models.ManyToManyField(EventCategory)
+    event_date = models.DateTimeField()
+    where = models.CharField(max_length=50)
+    description = models.TextField()
+    website_url = models.URLField()
+    price = models.IntegerField()
+
+
+
 
 
     

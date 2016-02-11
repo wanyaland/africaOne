@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms import TextInput,EmailInput
-from models import Customer,Business,Review,BusinessPhoto
+from models import Customer,Business,Review,BusinessPhoto,Event
 from widgets import *
 from django.forms.widgets import RadioFieldRenderer
 from django.core.exceptions import *
@@ -100,6 +100,13 @@ class PhotoForm(forms.ModelForm):
     class Meta:
         model=BusinessPhoto
         fields=('photo',)
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields=('name',)
+
+
 
 
 

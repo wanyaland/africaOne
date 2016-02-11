@@ -244,13 +244,35 @@ class ReviewCreate(CreateView):
         AddRatingView()(self.request,**params)
         for file in image_list:
             BusinessPhoto.objects.create(photo=file,review=self.object)
-
         return response
 
 
 class ReviewEdit(UpdateView):
     form_class=ReviewForm
     template_name = 'core/review_form.html'
+
+class ReviewDelete(DeleteView):
+    model = Review
+
+class AddEvent(CreateView):
+    form_class = EventForm
+    template_name = 'core/event_create.html'
+
+class EditEvent(UpdateView):
+    model = Event
+
+class DeleteEvent(DeleteView):
+    model = Event
+
+class EventDetail(DetailView):
+    model = Event
+
+
+
+
+
+
+    
 
 
 
