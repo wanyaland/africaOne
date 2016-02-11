@@ -19,8 +19,9 @@
             <form action="{{action_url}}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
               {% include "core/review_snippet.html" %}
-                Select Images:
-                {{form.files}}
+                Select Photos:<input type="file" name="img" multiple id="filesToUpload" name="filesToUpload[]">
+                <ul id="fileList">
+                </ul>
                 <br>
               <input type="submit" value="Post"/>
             </form>
@@ -41,5 +42,15 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    var input = document.getElementById('filesToUpload')
+    var list = document.getElementById('fileList')
+    //for every file...
+    for (var x = 0; x < input.files.length; x++) {
+	//add to list
+	var li = document.createElement('li');
+	li.innerHTML = 'File ' + (x + 1) + ':  ' + input.files[x].name;
+	list.append(li);
+}
+</script>
 {% endblock %}

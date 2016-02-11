@@ -20,4 +20,8 @@ urlpatterns = patterns('',
                        url(r'user-detail/(?P<pk>\d+)/$',UserDetail.as_view(),name='user_detail'),
                        url(r'user-list',UserList.as_view(),name='user_list'),
                        url(r'sign-up-business-results',ClaimBusinessList.as_view(),name='sign_up_business_results'),
+                       url(r'event-list',EventList.as_view(),name='event_list'),
+                       url(r'^event-add',AddEvent.as_view(),name='event_add'),
+                       url(r'^event-edit/(?P<pk>\d+)/$',EditEvent.as_view(),name='event_edit'),
+                       url(r'event-delete',DeleteEvent.as_view(),name='event_delete'),
                        )
