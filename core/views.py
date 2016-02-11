@@ -231,7 +231,10 @@ class ReviewCreate(CreateView):
         context = self.get_context_data()
         form.instance.business = context['business']
         #form.instance.rating.add(score=self.request.POST['rating'],user=self.request.user,ip_address=self.request.META['REMOTE_ADDR'])
+<<<<<<< HEAD
         image_list = self.request.FILES.getlist('files')
+=======
+>>>>>>> ef8b72b09f3156b28521b986bfd4ce11ba48c4e6
         response=super(ReviewCreate,self).form_valid(form)
         review_type = ContentType.objects.get_for_model(self.object)
         score = self.request.POST['rating']

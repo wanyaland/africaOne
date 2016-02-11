@@ -53,10 +53,16 @@
                 <br>
                 {% for review in reviews %}
                 {% include 'core/review_detail_snippet.html' %}
+<<<<<<< HEAD
                 {% for review_photo in review.businessphoto_set.all %}
                 <img src="{{review_photo.photo.url}}" width="200" height="200">
                 {% endfor %}
                 <p></p>
+=======
+                {% if review.photo%}
+                <img src="{{review.photo.url}}" height="100" width="100">
+                {% endif %}
+>>>>>>> ef8b72b09f3156b28521b986bfd4ce11ba48c4e6
                 <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/>  </p>
                 <div class="space-6"></div>
                 {% endfor %}

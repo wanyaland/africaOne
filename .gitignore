@@ -4,3 +4,4 @@
 **/*.orig
 **/*.DS_Store
 **/settings.py
+africa_one/settings.py
