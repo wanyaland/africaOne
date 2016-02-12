@@ -1,5 +1,9 @@
 {% extends 'core/base.html' %}
 {% block main %}
+<pre>
+    |{{ form }}|
+</pre>
+
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
@@ -19,14 +23,9 @@
             <form action="{{action_url}}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
               {% include "core/review_snippet.html" %}
-<<<<<<< HEAD
-                Select Images:
-                {{form.files}}
-=======
                 Select Photos:<input type="file" name="img" multiple id="filesToUpload" name="filesToUpload[]">
                 <ul id="fileList">
                 </ul>
->>>>>>> ef8b72b09f3156b28521b986bfd4ce11ba48c4e6
                 <br>
               <input type="submit" value="Post"/>
             </form>
