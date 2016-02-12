@@ -64,13 +64,13 @@ class EventCategory(models.Model):
     name = models.CharField(max_length=255)
 
 class Event(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20,null=True)
     categories= models.ManyToManyField(EventCategory)
-    event_date = models.DateTimeField()
-    where = models.CharField(max_length=50)
-    description = models.TextField()
-    website_url = models.URLField()
-    price = models.IntegerField()
+    event_date = models.DateTimeField(null=True)
+    where = models.CharField(max_length=50,null=True)
+    description = models.TextField(null=True)
+    website_url = models.URLField(null=True)
+    price = models.IntegerField(null=True)
 
 
 
