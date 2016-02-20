@@ -1,0 +1,93 @@
+
+$global-sprite: sprite-map("globals/*.png");
+
+$green: #77c301;
+$blue: #007fa8;
+
+* {
+  @include box-sizing('border-box');
+}
+
+body {
+  margin: 0;
+  background: #f1f1f1;
+  font-size: $font-size-base;
+  line-height: 1.7em;
+  color: #333;
+  font-family: "Open Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.full-page-wrapper {
+  position: relative;
+}
+.page-header {
+  position: relative;
+  z-index: 10;
+}
+.main-content-wrapper,
+.page-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a {
+  color: #579ebc;
+  text-decoration: none;
+  @include transition(all 0.3s ease-in);
+}
+.btn {
+  display: block;
+  background: $green;
+  @include border-radius(3px);
+  color: #fff;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  &:hover {
+    background-color: $blue;
+  }
+  &.grey-btn {
+    border: solid 1px #ccc;
+    background: #fff;
+    color: #666;
+    &:hover {
+      color: #fff;
+      background: $blue;
+      border-color: $blue;
+    }
+  }
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none none;
+}
+
+h1 {
+  @include ems_font_size(30px, $font-size-base);
+  line-height: 1.2em;
+  margin: 0;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  @include ems_font_size(20px, $font-size-base);
+  line-height: 1.2em;
+}
+
+.todo {
+  color: #f00 !important;
+}

@@ -1,10 +1,45 @@
 
-
-<div class="row">
-    <div class="col-md-10" id="{{review.id}}" score="{{review.rating.score}}">
-        <p>{{review.customer}}</p>
-         <input class="rating" value="{{review.rating.score}}" data-size="xs" data-disabled="true"> On {{review.create_date}}
-        <p>{{review.review}}</p>
+<div class="businesss-review-item clearfix" id="business-review-id-{{review.id}}">
+  <div class="user">
+    <div class="img"></div>
+    <div class="user-details">
+      <div class="user-name"><a href="javascript:;">By {{review.customer}}</a></div>
+      <div class="user-reviews-no"> 18 reviews</div>
+      <div class="todo">TODO: user pic, number of user reviews</div>
     </div>
-</div>
+  </div>
+  <div class="review-body-wrapper">
+    <div class="business-reviews-stars-number user-business-review">
+      <div class="review-stars" data-rating="{{review.rating.score}}">
+        <div class="review-stars-default default"></div>
+        <div class="review-stars-rating rating"></div>
+      </div>
+      <div class="text">4 out of 5 stars</div>
+    </div>
+    <div class="title-wrapper">
+      <h2 class="review-title">Review Title</h2>
+      <div class="review-date">Written on {{review.create_date}}</div>
+    </div>
+    <div class="review-text">{{review.review}}</div>
 
+    {% if review.businessphoto_set %}
+    <div class="review-images-wrapper">
+      <ul class="review-images-list clearfix list-unstyled">
+        {% for review_photo in review.businessphoto_set.all %}
+          <li><img src="{{review_photo.photo.url}}" /></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="review-feedback clearfix">
+      <label>Was this review?</label>
+      <a class="btn btn-feedback btn-helpful grey-btn">Helpful</a>
+      <a class="btn btn-feedback btn-funny grey-btn">Funny</a>
+      <a class="btn btn-feedback btn-cool grey-btn">Cool</a>
+    </div>
+    <div class="share-review">
+      <a class="share-review-btn btn grey-btn"><span class="icon"></span>Share this review</a>
+    </div>
+  </div>
+</div>
