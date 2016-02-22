@@ -186,12 +186,6 @@ class UserList(ListView):
     template_name = 'core/user_list.html'
     model = Customer
 
-class EventDetail(DetailView):
-    model = Event
-
-class EventList(ListView):
-    model = Event
-
 class ClaimBusinessList(ListView):
     model=Business
 
@@ -252,35 +246,4 @@ class ReviewEdit(UpdateView):
 
 class ReviewDelete(DeleteView):
     model = Review
-
-class AddEvent(CreateView):
-    form_class = EventForm
-    template_name = 'core/event_create.html'
-
-class EditEvent(UpdateView):
-    model = Event
-
-class DeleteEvent(DeleteView):
-    model = Event
-
-class EventDetail(DetailView):
-    model = Event
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

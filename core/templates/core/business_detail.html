@@ -1,116 +1,192 @@
 {% extends 'core/base.html'%}
 {% block main %}
-<div class="row">
 
-        <!--photo carausels -->
-        	<!-- thumb navigation carousel -->
-    <div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
-
-            <!-- thumb navigation carousel items -->
-          <ul class="list-inline">
-               <li> <a id="carousel-selector-{{business_photo.id}}">
-                  <img src="{{business_photo.photo.url}}" class="img-responsive">
-               </a></li>
-               <li> <a id="carousel-selector-{2">
-                  <img src="{{business_photo.photo.url}}" class="img-responsive">
-               </a></li>
-          </ul>
-
+<div class="business-header">
+  <div class="container">
+    <div class="business-title-header clearfix">
+      <div class="business-title-categories">
+        <h1 class="business-title">{{business.name}}</h1>
+        <div class="categories">
+          <div class="todo">TODO: Linked Categories list separated by commas</div>
+        </div>
+        <div class="business-reviews-stars-number">
+          <div class="review-stars" data-rating="{{business.get_avg_rating}}">
+            <div class="review-stars-default default"></div>
+            <div class="review-stars-rating rating"></div>
+          </div>
+          <div class="text">{{business.get_no_reviews}} reviews</div>
+        </div>
+      </div>
+      <div class="start-business-review">
+        <a class="btn-icon btn-share" href="javascript:;"><span class="icon"><span></span></span>Share</a>
+        <a class="btn-icon btn-take-photo" href="javascript:;"><span class="icon"><span></span></span>Add a photo</a>
+        <div class="start-review-wrapper">
+          <div class="write-review-wrapper">
+            <div class="review-stars">
+              <div class="review-stars-default default">
+                <div class="star star-1"></div>
+                <div class="star star-2"></div>
+                <div class="star star-3"></div>
+                <div class="star star-4"></div>
+                <div class="star star-5"></div>
+              </div>
+              <div class="review-stars-rating rating">
+                <div class="star star-1"></div>
+                <div class="star star-2"></div>
+                <div class="star star-3"></div>
+                <div class="star star-4"></div>
+                <div class="star star-5"></div>
+              </div>
+            </div>
+            <div class="txt">Write a Review</div>
+          </div>
+          <div class="help-txt">Click stars to rate this business</div>
+        </div>
+      </div>
     </div>
-
+    <div class="business-photos-carousel">
+      <div class="todo">TODO: Business photos not showing. Aggregate photos from reviews but show business owner's photos first.</div>
+      <ul class="list-unstyled business-photos-list">
+        <li> <a id="carousel-selector-{{business_photo.id}}">
+          <img src="{{business_photo.photo.url}}" class="img-responsive">
+        </a></li>
+        <li> <a id="carousel-selector-{2">
+          <img src="{{business_photo.photo.url}}" class="img-responsive">
+        </a></li>
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="row">
-    <div class="col-md-8">
-        <div class="row">
-            <!-- Business description -->
-            <div class="col-md-4">
-                {{business.name}}
-            <br>
-            <input class="rating" value="{{business.get_avg_rating}}" data-disabled="true" data-size="xs" />  <span>{{business.get_no_reviews}} reviews</span>
-            </div>
-            <div class="col-md-6">
-                <p>{{business.address}}</p>
-                <p>{{business.city}}</p>
-            </div>
+
+<div class="container">
+  <div class="business-body-wrapper">
+    <div class="business-details-wrapper">
+
+      <div class="business-details-col">
+        <div class="todo">TODO: Price Range, Open Hours, Phone Number, Website</div>
+        <div class="icon-detail business-address-icon">
+          <div class="icon"></div>
+          <div class="address value">{{business.address}}<br/>{{business.city}}</div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                {{business.description}}
-            </div>
+      </div>
+      <div class="business-categories-col">
+        <div class="business-categories">
+          <div class="todo">TODO: Business Categories. Each business has a maximum of 3 categories.</div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Reviews</h3>
+        <div class="business-desc">
+          {{business.description}}
+        </div>
+      </div>
+      <div class="business-map-col">
+        <div id="business-map" data-business-location="{{business.location}}" data-title="{{business.name}}"></div>
+        <a href="javascript:;" title="Get directions to this location" class="btn">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="business-reviews-features-wrapper clearfix">
+
+      <div class="col business-reviews-col"><div class="business-reviews-col-wrapper">
+        <div class="clearfix title-ratings-wrapper">
+          <h2>Customer Reviews</h2>
+          <div class="ratings-wrapper">
+            <div class="business-reviews-stars-number">
+              <div class="review-stars" data-rating="{{business.get_avg_rating}}">
+                <div class="review-stars-default default"></div>
+                <div class="review-stars-rating rating"></div>
+              </div>
+              <div class="text">{{business.get_no_reviews}} reviews</div>
             </div>
-            <div class="panel-body">
-                <form method="get">
-                   <h4>Sort by <input type="checkbox" name="sort" value="date"> Date <input type="checkbox" name="sort" value="create_date"> Rating</h4>
-                    <input type="submit" value="Sort">
-                </form>
-                <br>
-                 Start your review of {{business.name}}
-                <input type="button" class="rating btn-primary" data-size="xs" step="1" min="1" max="5" alt="Submit your reviews"/>
-                <br>
-                {% for review in reviews %}
-                {% include 'core/review_detail_snippet.html' %}
-<<<<<<< HEAD
-                {% for review_photo in review.businessphoto_set.all %}
-                <img src="{{review_photo.photo.url}}" width="200" height="200">
-                {% endfor %}
-                <p></p>
-=======
-                {% if review.photo%}
-                <img src="{{review.photo.url}}" height="100" width="100">
-                {% endif %}
->>>>>>> ef8b72b09f3156b28521b986bfd4ce11ba48c4e6
-                <p>Was this review ...? <input type="button" value="Helpful"/>  <input type="button" value="Funny"/> <input type="button" value="Cool"/>  </p>
-                <div class="space-6"></div>
-                {% endfor %}
-            </div>
+          </div>
         </div>
 
+        <div class="sort-wrapper clearfix">
+          <label>Sort by:</label>
+          <div class="sort-btn btn btn-date grey-btn">Date</div>
+          <div class="sort-btn btn btn-rating grey-btn">Rating</div>
+        </div>
+
+        <div class="trust-us-wrapper clearfix">
+          <div class="trust-info">
+            <p>Your trust is our top concern.</p>
+            <p>Businesses can't pay to alter or remove their reviews.</p>
+            <p class="link"><a href="javascript:;">Learn more</a></p>
+          </div>
+          <div class="write-review-col">
+            <div class="intro">Start your review of <strong>{{business.name}}</strong></div>
+            <div class="write-review-wrapper">
+              <div class="txt">Select your rating.</div>
+              <div class="review-stars">
+                <div class="review-stars-default default">
+                  <div class="star star-1"></div>
+                  <div class="star star-2"></div>
+                  <div class="star star-3"></div>
+                  <div class="star star-4"></div>
+                  <div class="star star-5"></div>
+                </div>
+                <div class="review-stars-rating rating">
+                  <div class="star star-1"></div>
+                  <div class="star star-2"></div>
+                  <div class="star star-3"></div>
+                  <div class="star star-4"></div>
+                  <div class="star star-5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="business-reviews-list-wrapper">
+
+          {% for review in reviews %}
+          {% include 'core/review_detail_snippet.html' %}
+          {% endfor %}
+
+        </div>
+
+      </div></div>
+
+      <div class="col business-features-col">
+        <div class="block block-features">
+          <h2>Business Features</h2>
+          <div class="block-content">
+            {% for feature in business.features.all %}
+            {{feature}}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="block block-facebook">
+          <h2>Connect on Facebook</h2>
+          <div class="block-content">
+          </div>
+        </div>
+        <div class="block block-similar-businesses">
+          <h2>Similar Businesses</h2>
+          <div class="block-content">
+            {% for business in business_set %}
+              <div class="similar-business-item clearfix">
+                <div class="img"></div>
+                <div class="details">
+                  <div class="title">
+                    <a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a>
+                  </div>
+                  <div class="business-reviews-stars-number user-business-review">
+                    <div class="review-stars" data-rating="{{business.get_avg_rating}}">
+                      <div class="review-stars-default default"></div>
+                      <div class="review-stars-rating rating"></div>
+                    </div>
+                    <div class="text">{{business.get_no_reviews}} reviews</div>
+                  </div>
+                  <div class="desc">{{business.description}}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
 
     </div>
-    <div class="col-md-4">
-        <div class="row">
-            <input class="rating"  data-size="xs" /> Click stars to rate
-            <div class="space-3"/>
-            <a href="{% url 'core:review_add' business_pk=business.pk %}" class="btn-sm btn-primary">Write a Review</a>
-            <a href="#" class="btn-sm btn-primary">Add a photo</a>
-            <a href="#" class="btn-sm btn-primary">Share</a>
 
-        </div>
-        <br>
-        <div class="panel panel-default">
-            {{business.location}}
-        </div>
-        <br>
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Business Features</h3>
-                </div>
-                <div class="panel-body">
-                        {% for feature in business.features.all %}
-                           {{feature}}
-                        {% endfor %}
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Check out similar businesses</h3>
-                </div>
-                <div class="panel-body">
-                    {% for business in business_set %}
-                       <a href="{% url 'core:business_detail' pk=business.pk %}"> {{business.name}} </a>
-                       <input class="rating" disabled="True" value="{{business.get_avg_rating}}" data-size="xs"/>
-                       {{business.get_no_reviews}} reviews
-                       <p>{{business.description}}</p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
 {% endblock %}
