@@ -44,12 +44,6 @@ class Customer(models.Model):
     def __unicode__(self):
         return "%s %s" %(self.user.first_name,self.user.last_name)
 
-class Event(models.Model):
-    event_name = models.CharField(max_length=20)
-    event_date = models.DateTimeField()
-    def __unicode__(self):
-        return self.event_name
-
 class Review(models.Model):
     customer = models.ForeignKey(Customer,null=True)
     business = models.ForeignKey(Business,null=True)
@@ -68,7 +62,11 @@ class Features(models.Model):
 
 
 
-    
+
+
+
+
+
 
 
 

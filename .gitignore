@@ -2,3 +2,8 @@
 **/*.py~
 **/*.idea
 **/*.orig
+**/*.DS_Store
+**/settings.py
+**/.sass-cache
+africa_one/settings.py
+env_mac

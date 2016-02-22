@@ -11,9 +11,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'africa_one.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^admin/', include(admin.site.urls)),
     url(r'^',include('core.urls',namespace='core')),
-    #url(r'^admin/',include('admin.urls',namespace='admin')),
+    url(r'^admin/',include('admin.urls',namespace='admin')),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
 ) 

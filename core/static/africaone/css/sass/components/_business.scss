@@ -1,0 +1,111 @@
+
+.businesss-review-item {
+  padding: 35px 30px 45px 310px;
+  position: relative;
+  border-bottom: solid 2px #f1f1f1;
+  .user {
+    position: absolute;
+    left: 30px; top: 35px;
+    width: 245px;
+    .img {
+      float: left;
+      width: 70px;
+      height: 70px;
+      background: #cfd7da;
+      @include border-radius(3px);
+    }
+    .user-details {
+      float: right;
+      width: 150px;
+      line-height: 1.3em;
+      color: #999;
+    }
+    .user-name {
+      font-weight: bold;
+      color: #579ebc;
+      @include ems_font_size(14px, $font-size-base);
+      margin-bottom: 5px;
+    }
+  }
+  .review-body-wrapper {
+    .title-wrapper {
+      margin: 15px 0;
+      position: relative;
+      h2 {
+        font-weight: normal;
+        @include ems_font_size(15px, $font-size-base);
+      }
+      .review-date {
+        position: absolute;
+        width: 150px;
+        overflow: hidden;
+        color: #999;
+        white-space: nowrap;
+        right: 0; top: 0;
+      }
+    }
+    .review-text {
+      color: #666;
+    }
+  }
+  .review-images-list {
+    margin: 15px -2px;
+    padding: 15px 0 0;
+    border-top: solid 1px #ccc;
+    li {
+      float: left;
+      padding: 0 2px;
+    }
+    img {
+      height: 75px;
+      width: auto;
+    }
+  }
+  .review-feedback {
+    margin: 15px 0;
+    padding: 15px 0;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    label, a {
+      float: left;
+    }
+    label {
+      color: #aaa;
+      width: 126px;
+      line-height: 32px;
+    }
+    .btn {
+      line-height: 30px;
+      padding: 0 20px;
+      margin: 0 0 0 4px;
+    }
+  }
+  .share-review-btn {
+    line-height: 30px;
+    width: 160px;
+  }
+}
+
+.similar-business-item {
+  padding: 30px 25px;
+  border-bottom: solid 1px #f1f1f1;
+  color: #666;
+  .img {
+    background: #f2f2f2;
+    float: left;
+    width: 130px;
+    height: 95px;
+  }
+  .details {
+    margin-left: 150px;
+  }
+  .title {
+    a {
+      text-transform: uppercase;
+      color: $blue;
+      font-weight: bold;
+      line-height: 1.2em;
+      @include ems_font_size(14px, $font-size-base);
+    }
+  }
+}

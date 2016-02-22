@@ -1,0 +1,2516 @@
+[
+{
+  "pk": 1, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "logentry", 
+    "name": "log entry", 
+    "app_label": "admin"
+  }
+},
+{
+  "pk": 2, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "permission", 
+    "name": "permission", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 3, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "group", 
+    "name": "group", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 4, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "user", 
+    "name": "user", 
+    "app_label": "auth"
+  }
+},
+{
+  "pk": 5, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "contenttype", 
+    "name": "content type", 
+    "app_label": "contenttypes"
+  }
+},
+{
+  "pk": 6, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "session", 
+    "name": "session", 
+    "app_label": "sessions"
+  }
+},
+{
+  "pk": 7, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "migrationhistory", 
+    "name": "migration history", 
+    "app_label": "south"
+  }
+},
+{
+  "pk": 8, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "category", 
+    "name": "category", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 9, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "business", 
+    "name": "business", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 10, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "customer", 
+    "name": "customer", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 11, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "event", 
+    "name": "event", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 12, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "review", 
+    "name": "review", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 13, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "vote", 
+    "name": "vote", 
+    "app_label": "djangoratings"
+  }
+},
+{
+  "pk": 14, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "score", 
+    "name": "score", 
+    "app_label": "djangoratings"
+  }
+},
+{
+  "pk": 15, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "similaruser", 
+    "name": "similar user", 
+    "app_label": "djangoratings"
+  }
+},
+{
+  "pk": 16, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "ignoredobject", 
+    "name": "ignored object", 
+    "app_label": "djangoratings"
+  }
+},
+{
+  "pk": 17, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "usersocialauth", 
+    "name": "user social auth", 
+    "app_label": "default"
+  }
+},
+{
+  "pk": 18, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "nonce", 
+    "name": "nonce", 
+    "app_label": "default"
+  }
+},
+{
+  "pk": 19, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "association", 
+    "name": "association", 
+    "app_label": "default"
+  }
+},
+{
+  "pk": 20, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "code", 
+    "name": "code", 
+    "app_label": "default"
+  }
+},
+{
+  "pk": 21, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "businessphoto", 
+    "name": "business photo", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 22, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "features", 
+    "name": "features", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": 23, 
+  "model": "contenttypes.contenttype", 
+  "fields": {
+    "model": "eventcategory", 
+    "name": "event category", 
+    "app_label": "core"
+  }
+},
+{
+  "pk": "ghpqic9x6y0k1vkybvpb0he87jrsq0kt", 
+  "model": "sessions.session", 
+  "fields": {
+    "expire_date": "2016-02-04T06:44:48.745Z", 
+    "session_data": "YmJiODU4ODVkNWJlYTRlNmUxYTYxNDk3NGExOGI0MTY5YmU5ZjYzZDp7fQ=="
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.category", 
+  "fields": {
+    "name": "Restaurant"
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.category", 
+  "fields": {
+    "name": "Sports"
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.business", 
+  "fields": {
+    "phone_number": "0772466862", 
+    "city": "Kampala", 
+    "create_date": "2016-01-07T21:18:42.461Z", 
+    "name": "Total", 
+    "web_address": "http://www.total.com/", 
+    "photo": "businesses/2016/01/07/2000px-Flag_of_Uganda.svg.png", 
+    "start_time": null, 
+    "description": null, 
+    "email": "wanyaland@gmail.com", 
+    "features": [], 
+    "location": "0.3151663,32.59895170000004", 
+    "address": "Kisementi", 
+    "approved": false, 
+    "categories": [
+      1
+    ], 
+    "end_time": null
+  }
+},
+{
+  "pk": 10, 
+  "model": "core.business", 
+  "fields": {
+    "phone_number": "0772466862", 
+    "city": "Kampala", 
+    "create_date": "2016-01-12T23:54:14.570Z", 
+    "name": "Shell", 
+    "web_address": "http://www.shell.com/", 
+    "photo": "businesses/2016/01/12/1017_2.jpg", 
+    "start_time": null, 
+    "description": null, 
+    "email": "wanyaland@gmail.com", 
+    "features": [], 
+    "location": "0.2982603,32.59874220000006", 
+    "address": "Ntinda", 
+    "approved": false, 
+    "categories": [
+      1
+    ], 
+    "end_time": null
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 1, 
+    "create_date": "2016-01-07T22:51:44.884Z", 
+    "business": 1, 
+    "review": "Fair stuff", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 1, 
+    "create_date": "2016-01-07T22:52:06.266Z", 
+    "business": 1, 
+    "review": "Not a bad stuff", 
+    "rating_score": 3, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 3, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 1, 
+    "create_date": "2016-01-08T01:13:19.283Z", 
+    "business": 1, 
+    "review": "Fantastic", 
+    "rating_score": 5, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 6, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 1, 
+    "create_date": "2016-01-08T18:18:23.993Z", 
+    "business": 1, 
+    "review": "Half star", 
+    "rating_score": 3, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 7, 
+  "model": "core.review", 
+  "fields": {
+    "customer": null, 
+    "create_date": "2016-01-13T01:30:06.136Z", 
+    "business": null, 
+    "review": "test", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 8, 
+  "model": "core.review", 
+  "fields": {
+    "customer": null, 
+    "create_date": "2016-01-14T14:59:57.550Z", 
+    "business": null, 
+    "review": "New review", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 9, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T15:15:45.244Z", 
+    "business": 1, 
+    "review": "New", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 10, 
+  "model": "core.review", 
+  "fields": {
+    "customer": null, 
+    "create_date": "2016-01-14T15:39:39.834Z", 
+    "business": null, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 11, 
+  "model": "core.review", 
+  "fields": {
+    "customer": null, 
+    "create_date": "2016-01-14T15:43:55.083Z", 
+    "business": null, 
+    "review": "adaweeed", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 12, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T15:45:06.565Z", 
+    "business": null, 
+    "review": "again", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 13, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T15:47:29.307Z", 
+    "business": 1, 
+    "review": "asdasdas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 14, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T15:51:13.618Z", 
+    "business": 1, 
+    "review": "Should work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 15, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T15:57:06.226Z", 
+    "business": 1, 
+    "review": "asda", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 16, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:20:04.963Z", 
+    "business": 1, 
+    "review": "It had better work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 17, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:21:51.990Z", 
+    "business": 1, 
+    "review": "It had better work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 18, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:23:23.683Z", 
+    "business": 1, 
+    "review": "It had better work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 19, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:25:14.247Z", 
+    "business": 1, 
+    "review": "It had better work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 20, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:27:34.509Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 21, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:29:53.525Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 22, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:31:19.015Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 23, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:32:00.768Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 24, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T16:33:54.644Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 25, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:31:05.987Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 26, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:32:05.919Z", 
+    "business": 1, 
+    "review": "adaas", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 27, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:41:02.235Z", 
+    "business": 1, 
+    "review": "adads", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 28, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:43:53.921Z", 
+    "business": 1, 
+    "review": "Ok", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 29, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:58:27.146Z", 
+    "business": 1, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 30, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:58:53.074Z", 
+    "business": 1, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 31, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:59:09.887Z", 
+    "business": 1, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 32, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:59:28.044Z", 
+    "business": 1, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 33, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T17:59:48.687Z", 
+    "business": 1, 
+    "review": "adasd", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 34, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T18:05:12.101Z", 
+    "business": 1, 
+    "review": "adasdsa", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 35, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T18:05:40.668Z", 
+    "business": 1, 
+    "review": "adasdsa", 
+    "rating_score": 3, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 36, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T18:20:06.889Z", 
+    "business": 10, 
+    "review": "Shell review", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 37, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-14T18:25:16.175Z", 
+    "business": 10, 
+    "review": "asasdas", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 38, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:25:57.162Z", 
+    "business": 1, 
+    "review": "Lets do this", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 39, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:32:13.122Z", 
+    "business": 10, 
+    "review": "OK", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 40, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:35:10.233Z", 
+    "business": 1, 
+    "review": "Testing 2 files", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 41, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:36:45.195Z", 
+    "business": 1, 
+    "review": "Be serious", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 42, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:38:14.414Z", 
+    "business": 1, 
+    "review": "Testing", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 43, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:39:31.370Z", 
+    "business": 1, 
+    "review": "This surely will work", 
+    "rating_score": 0, 
+    "rating_votes": 0
+  }
+},
+{
+  "pk": 44, 
+  "model": "core.review", 
+  "fields": {
+    "customer": 7, 
+    "create_date": "2016-01-15T01:53:54.628Z", 
+    "business": 1, 
+    "review": "Nice work", 
+    "rating_score": 4, 
+    "rating_votes": 1
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/10/1017_2.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/10/1017_1.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 3, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/10/1017_1_1.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 4, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/11/2000px-Flag_of_Uganda.svg.png", 
+    "review": null
+  }
+},
+{
+  "pk": 5, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/11/2000px-Flag_of_Uganda.svg_1.png", 
+    "review": 1
+  }
+},
+{
+  "pk": 6, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/11/flag.jpg", 
+    "review": 1
+  }
+},
+{
+  "pk": 7, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 8, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2_1.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 9, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_1_1.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 10, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2_2.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 11, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2_3.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 12, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/2000px-Flag_of_Uganda.svg.png", 
+    "review": null
+  }
+},
+{
+  "pk": 13, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2_4.jpg", 
+    "review": null
+  }
+},
+{
+  "pk": 14, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/2000px-Flag_of_Uganda.svg_1.png", 
+    "review": null
+  }
+},
+{
+  "pk": 15, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/1017_2_5.jpg", 
+    "review": 43
+  }
+},
+{
+  "pk": 16, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/2000px-Flag_of_Uganda.svg_2.png", 
+    "review": 43
+  }
+},
+{
+  "pk": 17, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/C360_2015-09-30-10-16-06-566.jpg", 
+    "review": 44
+  }
+},
+{
+  "pk": 18, 
+  "model": "core.businessphoto", 
+  "fields": {
+    "photo": "businesses/2016/01/15/Coat_of_arms_of_the_Republic_of_Uganda.svg.png", 
+    "review": 44
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.features", 
+  "fields": {
+    "name": "Pay with credit card"
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.features", 
+  "fields": {
+    "name": "Reservations Available"
+  }
+},
+{
+  "pk": 1, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:43.791Z", 
+    "app_name": "core", 
+    "migration": "0001_initial"
+  }
+},
+{
+  "pk": 2, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:43.864Z", 
+    "app_name": "core", 
+    "migration": "0002_auto__chg_field_customer_photo"
+  }
+},
+{
+  "pk": 3, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:43.919Z", 
+    "app_name": "core", 
+    "migration": "0003_auto__chg_field_customer_photo"
+  }
+},
+{
+  "pk": 4, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.114Z", 
+    "app_name": "core", 
+    "migration": "0004_auto__add_field_business_rating_votes__add_field_business_rating_score"
+  }
+},
+{
+  "pk": 5, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.321Z", 
+    "app_name": "core", 
+    "migration": "0005_auto__add_review__del_field_business_rating_score__del_field_business_"
+  }
+},
+{
+  "pk": 6, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.391Z", 
+    "app_name": "core", 
+    "migration": "0006_auto__chg_field_review_create_date"
+  }
+},
+{
+  "pk": 7, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.476Z", 
+    "app_name": "core", 
+    "migration": "0007_auto__chg_field_review_customer__chg_field_review_business"
+  }
+},
+{
+  "pk": 8, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.519Z", 
+    "app_name": "core", 
+    "migration": "0008_auto__del_field_review_customer"
+  }
+},
+{
+  "pk": 9, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:58:44.594Z", 
+    "app_name": "core", 
+    "migration": "0009_auto__add_field_review_customer"
+  }
+},
+{
+  "pk": 10, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:02.161Z", 
+    "app_name": "djangoratings", 
+    "migration": "0001_initial"
+  }
+},
+{
+  "pk": 11, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:02.432Z", 
+    "app_name": "djangoratings", 
+    "migration": "0002_add_mean_and_stddev"
+  }
+},
+{
+  "pk": 12, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:02.589Z", 
+    "app_name": "djangoratings", 
+    "migration": "0003_add_correlations"
+  }
+},
+{
+  "pk": 13, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:02.740Z", 
+    "app_name": "djangoratings", 
+    "migration": "0004_rethink_recommendations"
+  }
+},
+{
+  "pk": 14, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:03.034Z", 
+    "app_name": "djangoratings", 
+    "migration": "0005_add_exclusions"
+  }
+},
+{
+  "pk": 15, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:03.118Z", 
+    "app_name": "djangoratings", 
+    "migration": "0006_add_cookies"
+  }
+},
+{
+  "pk": 16, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T13:59:31.462Z", 
+    "app_name": "default", 
+    "migration": "0001_initial"
+  }
+},
+{
+  "pk": 17, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-07T21:16:27.976Z", 
+    "app_name": "core", 
+    "migration": "0010_auto__add_businessphoto__add_field_business_business_photos"
+  }
+},
+{
+  "pk": 18, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-08T10:12:47.476Z", 
+    "app_name": "core", 
+    "migration": "0011_auto__add_field_business_start_time__add_field_business_end_time"
+  }
+},
+{
+  "pk": 19, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-08T13:19:27.646Z", 
+    "app_name": "core", 
+    "migration": "0012_auto__add_features__add_field_business_features"
+  }
+},
+{
+  "pk": 20, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-08T13:43:52.203Z", 
+    "app_name": "core", 
+    "migration": "0013_auto__add_field_business_description"
+  }
+},
+{
+  "pk": 21, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-08T15:34:32.610Z", 
+    "app_name": "core", 
+    "migration": "0014_auto__del_field_business_features"
+  }
+},
+{
+  "pk": 22, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-10T04:52:28.792Z", 
+    "app_name": "core", 
+    "migration": "0015_auto__del_field_business_business_photos__add_field_businessphoto_busi"
+  }
+},
+{
+  "pk": 23, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-10T23:03:10.164Z", 
+    "app_name": "core", 
+    "migration": "0016_auto__add_field_businessphoto_customer"
+  }
+},
+{
+  "pk": 24, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-11T02:49:10.005Z", 
+    "app_name": "core", 
+    "migration": "0017_auto__add_field_review_photo__del_field_businessphoto_customer__del_fi"
+  }
+},
+{
+  "pk": 25, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-01-21T07:24:04.473Z", 
+    "app_name": "core", 
+    "migration": "0018_auto__add_eventcategory__del_field_review_photo"
+  }
+},
+{
+  "pk": 26, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-02-12T14:52:42.056Z", 
+    "app_name": "core", 
+    "migration": "0019_auto__del_field_event_event_name__add_field_event_name__add_field_even"
+  }
+},
+{
+  "pk": 27, 
+  "model": "south.migrationhistory", 
+  "fields": {
+    "applied": "2016-02-12T15:21:13.483Z", 
+    "app_name": "core", 
+    "migration": "0020_auto__del_event__del_eventcategory"
+  }
+},
+{
+  "pk": 1, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 1, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 3, 
+    "object_id": 2, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 3, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 5, 
+    "object_id": 3, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 4, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 3, 
+    "object_id": 6, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 5, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 3, 
+    "object_id": 35, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 6, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 37, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 7, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 38, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 8, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 41, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 9, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 42, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 10, 
+  "model": "djangoratings.score", 
+  "fields": {
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "votes": 1, 
+    "score": 4, 
+    "object_id": 44, 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_logentry", 
+    "name": "Can add log entry", 
+    "content_type": [
+      "admin", 
+      "logentry"
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_logentry", 
+    "name": "Can change log entry", 
+    "content_type": [
+      "admin", 
+      "logentry"
+    ]
+  }
+},
+{
+  "pk": 3, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_logentry", 
+    "name": "Can delete log entry", 
+    "content_type": [
+      "admin", 
+      "logentry"
+    ]
+  }
+},
+{
+  "pk": 4, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_permission", 
+    "name": "Can add permission", 
+    "content_type": [
+      "auth", 
+      "permission"
+    ]
+  }
+},
+{
+  "pk": 5, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_permission", 
+    "name": "Can change permission", 
+    "content_type": [
+      "auth", 
+      "permission"
+    ]
+  }
+},
+{
+  "pk": 6, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_permission", 
+    "name": "Can delete permission", 
+    "content_type": [
+      "auth", 
+      "permission"
+    ]
+  }
+},
+{
+  "pk": 7, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_group", 
+    "name": "Can add group", 
+    "content_type": [
+      "auth", 
+      "group"
+    ]
+  }
+},
+{
+  "pk": 8, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_group", 
+    "name": "Can change group", 
+    "content_type": [
+      "auth", 
+      "group"
+    ]
+  }
+},
+{
+  "pk": 9, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_group", 
+    "name": "Can delete group", 
+    "content_type": [
+      "auth", 
+      "group"
+    ]
+  }
+},
+{
+  "pk": 10, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_user", 
+    "name": "Can add user", 
+    "content_type": [
+      "auth", 
+      "user"
+    ]
+  }
+},
+{
+  "pk": 11, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_user", 
+    "name": "Can change user", 
+    "content_type": [
+      "auth", 
+      "user"
+    ]
+  }
+},
+{
+  "pk": 12, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_user", 
+    "name": "Can delete user", 
+    "content_type": [
+      "auth", 
+      "user"
+    ]
+  }
+},
+{
+  "pk": 13, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_contenttype", 
+    "name": "Can add content type", 
+    "content_type": [
+      "contenttypes", 
+      "contenttype"
+    ]
+  }
+},
+{
+  "pk": 14, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_contenttype", 
+    "name": "Can change content type", 
+    "content_type": [
+      "contenttypes", 
+      "contenttype"
+    ]
+  }
+},
+{
+  "pk": 15, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_contenttype", 
+    "name": "Can delete content type", 
+    "content_type": [
+      "contenttypes", 
+      "contenttype"
+    ]
+  }
+},
+{
+  "pk": 16, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_session", 
+    "name": "Can add session", 
+    "content_type": [
+      "sessions", 
+      "session"
+    ]
+  }
+},
+{
+  "pk": 17, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_session", 
+    "name": "Can change session", 
+    "content_type": [
+      "sessions", 
+      "session"
+    ]
+  }
+},
+{
+  "pk": 18, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_session", 
+    "name": "Can delete session", 
+    "content_type": [
+      "sessions", 
+      "session"
+    ]
+  }
+},
+{
+  "pk": 19, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_migrationhistory", 
+    "name": "Can add migration history", 
+    "content_type": [
+      "south", 
+      "migrationhistory"
+    ]
+  }
+},
+{
+  "pk": 20, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_migrationhistory", 
+    "name": "Can change migration history", 
+    "content_type": [
+      "south", 
+      "migrationhistory"
+    ]
+  }
+},
+{
+  "pk": 21, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_migrationhistory", 
+    "name": "Can delete migration history", 
+    "content_type": [
+      "south", 
+      "migrationhistory"
+    ]
+  }
+},
+{
+  "pk": 22, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_category", 
+    "name": "Can add category", 
+    "content_type": [
+      "core", 
+      "category"
+    ]
+  }
+},
+{
+  "pk": 23, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_category", 
+    "name": "Can change category", 
+    "content_type": [
+      "core", 
+      "category"
+    ]
+  }
+},
+{
+  "pk": 24, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_category", 
+    "name": "Can delete category", 
+    "content_type": [
+      "core", 
+      "category"
+    ]
+  }
+},
+{
+  "pk": 25, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_business", 
+    "name": "Can add business", 
+    "content_type": [
+      "core", 
+      "business"
+    ]
+  }
+},
+{
+  "pk": 26, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_business", 
+    "name": "Can change business", 
+    "content_type": [
+      "core", 
+      "business"
+    ]
+  }
+},
+{
+  "pk": 27, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_business", 
+    "name": "Can delete business", 
+    "content_type": [
+      "core", 
+      "business"
+    ]
+  }
+},
+{
+  "pk": 28, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_customer", 
+    "name": "Can add customer", 
+    "content_type": [
+      "core", 
+      "customer"
+    ]
+  }
+},
+{
+  "pk": 29, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_customer", 
+    "name": "Can change customer", 
+    "content_type": [
+      "core", 
+      "customer"
+    ]
+  }
+},
+{
+  "pk": 30, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_customer", 
+    "name": "Can delete customer", 
+    "content_type": [
+      "core", 
+      "customer"
+    ]
+  }
+},
+{
+  "pk": 31, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_event", 
+    "name": "Can add event", 
+    "content_type": [
+      "core", 
+      "event"
+    ]
+  }
+},
+{
+  "pk": 32, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_event", 
+    "name": "Can change event", 
+    "content_type": [
+      "core", 
+      "event"
+    ]
+  }
+},
+{
+  "pk": 33, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_event", 
+    "name": "Can delete event", 
+    "content_type": [
+      "core", 
+      "event"
+    ]
+  }
+},
+{
+  "pk": 34, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_review", 
+    "name": "Can add review", 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 35, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_review", 
+    "name": "Can change review", 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 36, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_review", 
+    "name": "Can delete review", 
+    "content_type": [
+      "core", 
+      "review"
+    ]
+  }
+},
+{
+  "pk": 37, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_vote", 
+    "name": "Can add vote", 
+    "content_type": [
+      "djangoratings", 
+      "vote"
+    ]
+  }
+},
+{
+  "pk": 38, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_vote", 
+    "name": "Can change vote", 
+    "content_type": [
+      "djangoratings", 
+      "vote"
+    ]
+  }
+},
+{
+  "pk": 39, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_vote", 
+    "name": "Can delete vote", 
+    "content_type": [
+      "djangoratings", 
+      "vote"
+    ]
+  }
+},
+{
+  "pk": 40, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_score", 
+    "name": "Can add score", 
+    "content_type": [
+      "djangoratings", 
+      "score"
+    ]
+  }
+},
+{
+  "pk": 41, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_score", 
+    "name": "Can change score", 
+    "content_type": [
+      "djangoratings", 
+      "score"
+    ]
+  }
+},
+{
+  "pk": 42, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_score", 
+    "name": "Can delete score", 
+    "content_type": [
+      "djangoratings", 
+      "score"
+    ]
+  }
+},
+{
+  "pk": 43, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_similaruser", 
+    "name": "Can add similar user", 
+    "content_type": [
+      "djangoratings", 
+      "similaruser"
+    ]
+  }
+},
+{
+  "pk": 44, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_similaruser", 
+    "name": "Can change similar user", 
+    "content_type": [
+      "djangoratings", 
+      "similaruser"
+    ]
+  }
+},
+{
+  "pk": 45, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_similaruser", 
+    "name": "Can delete similar user", 
+    "content_type": [
+      "djangoratings", 
+      "similaruser"
+    ]
+  }
+},
+{
+  "pk": 46, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_ignoredobject", 
+    "name": "Can add ignored object", 
+    "content_type": [
+      "djangoratings", 
+      "ignoredobject"
+    ]
+  }
+},
+{
+  "pk": 47, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_ignoredobject", 
+    "name": "Can change ignored object", 
+    "content_type": [
+      "djangoratings", 
+      "ignoredobject"
+    ]
+  }
+},
+{
+  "pk": 48, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_ignoredobject", 
+    "name": "Can delete ignored object", 
+    "content_type": [
+      "djangoratings", 
+      "ignoredobject"
+    ]
+  }
+},
+{
+  "pk": 49, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_usersocialauth", 
+    "name": "Can add user social auth", 
+    "content_type": [
+      "default", 
+      "usersocialauth"
+    ]
+  }
+},
+{
+  "pk": 50, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_usersocialauth", 
+    "name": "Can change user social auth", 
+    "content_type": [
+      "default", 
+      "usersocialauth"
+    ]
+  }
+},
+{
+  "pk": 51, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_usersocialauth", 
+    "name": "Can delete user social auth", 
+    "content_type": [
+      "default", 
+      "usersocialauth"
+    ]
+  }
+},
+{
+  "pk": 52, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_nonce", 
+    "name": "Can add nonce", 
+    "content_type": [
+      "default", 
+      "nonce"
+    ]
+  }
+},
+{
+  "pk": 53, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_nonce", 
+    "name": "Can change nonce", 
+    "content_type": [
+      "default", 
+      "nonce"
+    ]
+  }
+},
+{
+  "pk": 54, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_nonce", 
+    "name": "Can delete nonce", 
+    "content_type": [
+      "default", 
+      "nonce"
+    ]
+  }
+},
+{
+  "pk": 55, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_association", 
+    "name": "Can add association", 
+    "content_type": [
+      "default", 
+      "association"
+    ]
+  }
+},
+{
+  "pk": 56, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_association", 
+    "name": "Can change association", 
+    "content_type": [
+      "default", 
+      "association"
+    ]
+  }
+},
+{
+  "pk": 57, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_association", 
+    "name": "Can delete association", 
+    "content_type": [
+      "default", 
+      "association"
+    ]
+  }
+},
+{
+  "pk": 58, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_code", 
+    "name": "Can add code", 
+    "content_type": [
+      "default", 
+      "code"
+    ]
+  }
+},
+{
+  "pk": 59, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_code", 
+    "name": "Can change code", 
+    "content_type": [
+      "default", 
+      "code"
+    ]
+  }
+},
+{
+  "pk": 60, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_code", 
+    "name": "Can delete code", 
+    "content_type": [
+      "default", 
+      "code"
+    ]
+  }
+},
+{
+  "pk": 61, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_businessphoto", 
+    "name": "Can add business photo", 
+    "content_type": [
+      "core", 
+      "businessphoto"
+    ]
+  }
+},
+{
+  "pk": 62, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_businessphoto", 
+    "name": "Can change business photo", 
+    "content_type": [
+      "core", 
+      "businessphoto"
+    ]
+  }
+},
+{
+  "pk": 63, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_businessphoto", 
+    "name": "Can delete business photo", 
+    "content_type": [
+      "core", 
+      "businessphoto"
+    ]
+  }
+},
+{
+  "pk": 64, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_features", 
+    "name": "Can add features", 
+    "content_type": [
+      "core", 
+      "features"
+    ]
+  }
+},
+{
+  "pk": 65, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_features", 
+    "name": "Can change features", 
+    "content_type": [
+      "core", 
+      "features"
+    ]
+  }
+},
+{
+  "pk": 66, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_features", 
+    "name": "Can delete features", 
+    "content_type": [
+      "core", 
+      "features"
+    ]
+  }
+},
+{
+  "pk": 67, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "add_eventcategory", 
+    "name": "Can add event category", 
+    "content_type": [
+      "core", 
+      "eventcategory"
+    ]
+  }
+},
+{
+  "pk": 68, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "change_eventcategory", 
+    "name": "Can change event category", 
+    "content_type": [
+      "core", 
+      "eventcategory"
+    ]
+  }
+},
+{
+  "pk": 69, 
+  "model": "auth.permission", 
+  "fields": {
+    "codename": "delete_eventcategory", 
+    "name": "Can delete event category", 
+    "content_type": [
+      "core", 
+      "eventcategory"
+    ]
+  }
+},
+{
+  "pk": 1, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "admin", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": true, 
+    "is_staff": true, 
+    "last_login": "2016-01-13T18:36:11.644Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$vfV7UbrGInHd$XTJt0kMzYEO+0hZfgNTtmci5OTKkjdDXLudHDlnvXZg=", 
+    "email": "wanyaland@gmail.com", 
+    "date_joined": "2016-01-07T13:58:32.248Z"
+  }
+},
+{
+  "pk": 2, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "harry", 
+    "first_name": "Harold", 
+    "last_name": "Wanyama", 
+    "is_active": true, 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2016-01-13T17:39:00.828Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$22sPm1CYFbfl$zuvJcOQ3CZK6pdxSZgZttWR1MAk6WcTVOoq9xGlxNeg=", 
+    "email": "wanyaland@gmail.com", 
+    "date_joined": "2016-01-07T14:02:24.562Z"
+  }
+},
+{
+  "pk": 3, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "harold", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2016-01-08T01:47:16.643Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2016-01-08T01:47:16.643Z"
+  }
+},
+{
+  "pk": 6, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "ssonko", 
+    "first_name": "", 
+    "last_name": "", 
+    "is_active": true, 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2016-01-08T01:50:18.912Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "", 
+    "email": "", 
+    "date_joined": "2016-01-08T01:50:18.912Z"
+  }
+},
+{
+  "pk": 8, 
+  "model": "auth.user", 
+  "fields": {
+    "username": "james", 
+    "first_name": "James", 
+    "last_name": "Turyhabwe", 
+    "is_active": true, 
+    "is_superuser": false, 
+    "is_staff": false, 
+    "last_login": "2016-01-13T18:37:13.037Z", 
+    "groups": [], 
+    "user_permissions": [], 
+    "password": "pbkdf2_sha256$12000$GsNcqXMx9TWX$lvabz3L5a2+WNs0mmxeiNQ4qpincUG42VrsB622EWmk=", 
+    "email": "james@gmail.com", 
+    "date_joined": "2016-01-13T18:37:04.169Z"
+  }
+},
+{
+  "pk": 1, 
+  "model": "core.customer", 
+  "fields": {
+    "photo": "avatars/2016/01/07/1017_1.jpg", 
+    "user": [
+      "harry"
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "core.customer", 
+  "fields": {
+    "photo": "", 
+    "user": [
+      "harold"
+    ]
+  }
+},
+{
+  "pk": 3, 
+  "model": "core.customer", 
+  "fields": {
+    "photo": "", 
+    "user": [
+      "ssonko"
+    ]
+  }
+},
+{
+  "pk": 7, 
+  "model": "core.customer", 
+  "fields": {
+    "photo": "avatars/2016/01/13/gent.jpg", 
+    "user": [
+      "james"
+    ]
+  }
+},
+{
+  "pk": 1, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 1, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "harry"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-07T22:51:45.044Z", 
+    "date_added": "2016-01-07T22:51:45.044Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 2, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 2, 
+    "score": 3, 
+    "cookie": null, 
+    "user": [
+      "harry"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-07T22:52:06.309Z", 
+    "date_added": "2016-01-07T22:52:06.309Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 3, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 3, 
+    "score": 5, 
+    "cookie": null, 
+    "user": [
+      "harry"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-08T01:13:19.317Z", 
+    "date_added": "2016-01-08T01:13:19.317Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 4, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 6, 
+    "score": 3, 
+    "cookie": null, 
+    "user": [
+      "harry"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-08T18:18:24.197Z", 
+    "date_added": "2016-01-08T18:18:24.197Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 6, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 35, 
+    "score": 3, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-14T18:05:40.768Z", 
+    "date_added": "2016-01-14T18:05:40.768Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 7, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 37, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-14T18:25:16.201Z", 
+    "date_added": "2016-01-14T18:25:16.201Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 8, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 38, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-15T01:25:57.308Z", 
+    "date_added": "2016-01-15T01:25:57.308Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 9, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 41, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-15T01:36:45.223Z", 
+    "date_added": "2016-01-15T01:36:45.223Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 10, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 42, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-15T01:38:14.442Z", 
+    "date_added": "2016-01-15T01:38:14.441Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 11, 
+  "model": "djangoratings.vote", 
+  "fields": {
+    "content_type": [
+      "core", 
+      "review"
+    ], 
+    "object_id": 44, 
+    "score": 4, 
+    "cookie": null, 
+    "user": [
+      "james"
+    ], 
+    "key": "2c5504ab9a86164db22a92dc8793843d", 
+    "date_changed": "2016-01-15T01:53:54.652Z", 
+    "date_added": "2016-01-15T01:53:54.652Z", 
+    "ip_address": "127.0.0.1"
+  }
+},
+{
+  "pk": 1, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-01-08T13:47:56.261Z", 
+    "object_repr": "Features object", 
+    "object_id": "1", 
+    "change_message": "", 
+    "user": [
+      "admin"
+    ], 
+    "content_type": [
+      "core", 
+      "features"
+    ]
+  }
+},
+{
+  "pk": 2, 
+  "model": "admin.logentry", 
+  "fields": {
+    "action_flag": 1, 
+    "action_time": "2016-01-08T13:48:24.610Z", 
+    "object_repr": "Features object", 
+    "object_id": "2", 
+    "change_message": "", 
+    "user": [
+      "admin"
+    ], 
+    "content_type": [
+      "core", 
+      "features"
+    ]
+  }
+}
+]

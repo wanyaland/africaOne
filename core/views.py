@@ -152,7 +152,7 @@ def add_business_successful(request):
 class ReviewListView(ListView):
     model = Business
     template_name = 'core/review_list.html'
-    
+
 
 class ReviewDetail(DetailView):
     model = Review
@@ -185,12 +185,6 @@ class UserDetail(DetailView):
 class UserList(ListView):
     template_name = 'core/user_list.html'
     model = Customer
-
-class EventDetail(DetailView):
-    model = Event
-
-class EventList(ListView):
-    model = Event
 
 class ClaimBusinessList(ListView):
     model=Business
@@ -231,7 +225,6 @@ class ReviewCreate(CreateView):
         context = self.get_context_data()
         form.instance.business = context['business']
         #form.instance.rating.add(score=self.request.POST['rating'],user=self.request.user,ip_address=self.request.META['REMOTE_ADDR'])
-        image_list = self.request.FILES.getlist('files')
         response=super(ReviewCreate,self).form_valid(form)
         review_type = ContentType.objects.get_for_model(self.object)
         score = self.request.POST['rating']
@@ -244,7 +237,6 @@ class ReviewCreate(CreateView):
         AddRatingView()(self.request,**params)
         for file in image_list:
             BusinessPhoto.objects.create(photo=file,review=self.object)
-
         return response
 
 
@@ -252,14 +244,6 @@ class ReviewEdit(UpdateView):
     form_class=ReviewForm
     template_name = 'core/review_form.html'
 
-
-
-
-
-
-
-
-
-
-
+class ReviewDelete(DeleteView):
+    model = Review
 
