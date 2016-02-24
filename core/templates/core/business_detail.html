@@ -7,7 +7,11 @@
       <div class="business-title-categories">
         <h1 class="business-title">{{business.name}}</h1>
         <div class="categories">
-          <div class="todo">TODO: Linked Categories list separated by commas</div>
+          <div class="todo">
+            {% for category in categories %}
+            {{category}}
+            {% endfor %}
+          </div>
         </div>
         <div class="business-reviews-stars-number">
           <div class="review-stars" data-rating="{{business.get_avg_rating}}">
