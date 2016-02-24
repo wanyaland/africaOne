@@ -170,7 +170,7 @@ class BusinessDetail(DetailView):
         context['reviews'] = self.reviews
         business_set = []
         categories = self.categories.all()
-
+        context['categories'] = categories
         for category in categories:
             for business in category.business_set.all():
                 if business!= self.business:
