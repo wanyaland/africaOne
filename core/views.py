@@ -190,8 +190,9 @@ class ClaimBusinessList(ListView):
     model=Business
 
 def search_business(request):
-    query = request.GET.get('q','')
-    if query:
+    query = request.GET.get('business_name','')
+    location = request.GET.get('location','')
+    if query :
         qset = (
             Q(name__icontains=query)
         )
@@ -235,8 +236,6 @@ class ReviewCreate(CreateView):
                 'score':score,
          }
         AddRatingView()(self.request,**params)
-        for file in image_list:
-            BusinessPhoto.objects.create(photo=file,review=self.object)
         return response
 
 
