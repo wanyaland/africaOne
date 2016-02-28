@@ -65,7 +65,7 @@
     <div class="business-details-wrapper">
 
       <div class="business-details-col">
-        <div class="todo">TODO: Price Range, {{business.start_time}}-{{business.end_time}}, {{business.phone_number}}, {{business.web_address}}</div>
+        <div class="todo">TODO: {{business.price_range}}, {{business.start_time}}-{{business.end_time}}, {{business.phone_number}}, {{business.web_address}}</div>
         <div class="icon-detail business-address-icon">
           <div class="icon"></div>
           <div class="address value">{{business.address}}<br/>{{business.city}}</div>
@@ -169,7 +169,7 @@
           <div class="block-content">
             {% for business in business_set %}
               <div class="similar-business-item clearfix">
-                <div class="img"></div>
+                  <img src="{{business.photo.url}}" class="img">
                 <div class="details">
                   <div class="title">
                     <a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a>
