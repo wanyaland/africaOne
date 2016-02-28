@@ -27,6 +27,7 @@ class Business(models.Model):
     end_time = models.TimeField(null=True)
     features = models.ManyToManyField('Features',null=True)
     description = models.TextField(null=True)
+    price_range = models.IntegerField(null=True)
 
     def __unicode__(self):
         return self.name

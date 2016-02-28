@@ -169,6 +169,7 @@ class BusinessDetail(DetailView):
         self.categories = self.business.categories
         context['reviews'] = self.reviews
         business_set = []
+        review_photos = []
         categories = self.categories.all()
         context['categories'] = categories
         for category in categories:
@@ -176,6 +177,10 @@ class BusinessDetail(DetailView):
                 if business!= self.business:
                     business_set.append(business)
         context['business_set']= business_set
+        for review in self.reviews:
+            for photo in review.businessphoto_set.all():
+                review_photos.append(photo)
+        context['review_photos']=review_photos[:5]
         return context
 
 class UserDetail(DetailView):
