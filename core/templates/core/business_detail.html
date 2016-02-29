@@ -7,7 +7,11 @@
       <div class="business-title-categories">
         <h1 class="business-title">{{business.name}}</h1>
         <div class="categories">
-          <div class="todo">TODO: Linked Categories list separated by commas</div>
+          <div class="todo">
+            {% for category in categories %}
+            {{category}}
+            {% endfor %}
+          </div>
         </div>
         <div class="business-reviews-stars-number">
           <div class="review-stars" data-rating="{{business.get_avg_rating}}">
@@ -45,14 +49,12 @@
       </div>
     </div>
     <div class="business-photos-carousel">
-      <div class="todo">TODO: Business photos not showing. Aggregate photos from reviews but show business owner's photos first.</div>
       <ul class="list-unstyled business-photos-list">
-        <li> <a id="carousel-selector-{{business_photo.id}}">
-          <img src="{{business_photo.photo.url}}" class="img-responsive">
+        {% for photo in review_photos %}
+        <li> <a id="carousel-selector-{{photo.id}}">
+          <img src="{{photo.photo.url}}" class="img-responsive">
         </a></li>
-        <li> <a id="carousel-selector-{2">
-          <img src="{{business_photo.photo.url}}" class="img-responsive">
-        </a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>
@@ -63,7 +65,7 @@
     <div class="business-details-wrapper">
 
       <div class="business-details-col">
-        <div class="todo">TODO: Price Range, Open Hours, Phone Number, Website</div>
+        <div class="todo">TODO: {{business.price_range}}, {{business.start_time}}-{{business.end_time}}, {{business.phone_number}}, {{business.web_address}}</div>
         <div class="icon-detail business-address-icon">
           <div class="icon"></div>
           <div class="address value">{{business.address}}<br/>{{business.city}}</div>
@@ -71,7 +73,10 @@
       </div>
       <div class="business-categories-col">
         <div class="business-categories">
-          <div class="todo">TODO: Business Categories. Each business has a maximum of 3 categories.</div>
+          <div class="todo">
+            {% for category in categories %}
+            {{category}}
+            {% endfor %}.</div>
         </div>
         <div class="business-desc">
           {{business.description}}
@@ -164,7 +169,7 @@
           <div class="block-content">
             {% for business in business_set %}
               <div class="similar-business-item clearfix">
-                <div class="img"></div>
+                  <img src="{{business.photo.url}}" class="img">
                 <div class="details">
                   <div class="title">
                     <a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a>

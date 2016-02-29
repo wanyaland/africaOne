@@ -169,13 +169,18 @@ class BusinessDetail(DetailView):
         self.categories = self.business.categories
         context['reviews'] = self.reviews
         business_set = []
+        review_photos = []
         categories = self.categories.all()
-
+        context['categories'] = categories
         for category in categories:
             for business in category.business_set.all():
                 if business!= self.business:
                     business_set.append(business)
         context['business_set']= business_set
+        for review in self.reviews:
+            for photo in review.businessphoto_set.all():
+                review_photos.append(photo)
+        context['review_photos']=review_photos[:5]
         return context
 
 class UserDetail(DetailView):
@@ -190,8 +195,9 @@ class ClaimBusinessList(ListView):
     model=Business
 
 def search_business(request):
-    query = request.GET.get('q','')
-    if query:
+    query = request.GET.get('business_name','')
+    location = request.GET.get('location','')
+    if query :
         qset = (
             Q(name__icontains=query)
         )
@@ -235,8 +241,6 @@ class ReviewCreate(CreateView):
                 'score':score,
          }
         AddRatingView()(self.request,**params)
-        for file in image_list:
-            BusinessPhoto.objects.create(photo=file,review=self.object)
         return response
 
 
