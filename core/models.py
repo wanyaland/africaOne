@@ -8,8 +8,10 @@ from django.db.models import Avg
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
+    parent_category = models.ForeignKey('self',blank=True,null=True)
     def __unicode__(self):
         return self.name
+
 
 class Business(models.Model):
     name = models.CharField(max_length=20)
