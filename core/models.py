@@ -7,7 +7,7 @@ from django.db.models import Avg
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=40)
     parent_category = models.ForeignKey('self',blank=True,null=True)
     def __unicode__(self):
         return self.name
