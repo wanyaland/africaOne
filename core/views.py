@@ -166,7 +166,13 @@ class BusinessDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(BusinessDetail,self).get_context_data(**kwargs)
         self.business =self.get_object()
-        self.reviews = self.business.review_set.all()
+        sort = self.request.GET.get('sort')
+        if sort=='date':
+         self.reviews = self.business.review_set.all().order_by('-create_date')
+        elif sort=='rating':
+         self.reviews = self.business.review_set.all().order_by('rating_score')
+        else:
+         self.reviews = self.business.review_set.all()
         self.categories = self.business.categories
         paginator = Paginator(self.reviews,5)
         page = self.request.GET.get('page')
