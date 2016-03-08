@@ -11,7 +11,6 @@
         </div>
         <div class="business-reviews-stars-number">
           <div class="review-stars" data-rating="{{business.get_avg_rating}}">
-            <div class="review-stars-default default"></div>
             <div class="review-stars-rating rating"></div>
           </div>
           <div class="text">{{business.get_no_reviews}} reviews</div>
@@ -19,24 +18,11 @@
       </div>
       <div class="start-business-review">
         <a class="btn-icon btn-share" href="javascript:;"><span class="icon"><span></span></span>Share</a>
-        <a class="btn-icon btn-take-photo" href="javascript:;"><span class="icon"><span></span></span>Add a photo</a>
+        <a class="btn-icon no-radius btn-take-photo" href="javascript:;"><span class="icon"><span></span></span>Add a photo</a>
         <div class="start-review-wrapper">
           <div class="write-review-wrapper">
-            <div class="review-stars">
-              <div class="review-stars-default default">
-                <div class="star star-1"></div>
-                <div class="star star-2"></div>
-                <div class="star star-3"></div>
-                <div class="star star-4"></div>
-                <div class="star star-5"></div>
-              </div>
-              <div class="review-stars-rating rating">
-                <div class="star star-1"></div>
-                <div class="star star-2"></div>
-                <div class="star star-3"></div>
-                <div class="star star-4"></div>
-                <div class="star star-5"></div>
-              </div>
+            <div class="review-stars blue">
+              <div class="rating"></div>
             </div>
             <div class="txt">Write a Review</div>
           </div>
@@ -114,23 +100,10 @@
           <div class="write-review-col">
             <div class="intro">Start your review of <strong>{{business.name}}</strong></div>
             <div class="write-review-wrapper">
-              <div class="txt">Select your rating.</div>
-              <div class="review-stars">
-                <div class="review-stars-default default">
-                  <div class="star star-1"></div>
-                  <div class="star star-2"></div>
-                  <div class="star star-3"></div>
-                  <div class="star star-4"></div>
-                  <div class="star star-5"></div>
-                </div>
-                <div class="review-stars-rating rating">
-                  <div class="star star-1"></div>
-                  <div class="star star-2"></div>
-                  <div class="star star-3"></div>
-                  <div class="star star-4"></div>
-                  <div class="star star-5"></div>
-                </div>
+              <div class="review-stars blue">
+                <div class="rating"></div>
               </div>
+              <div class="txt">Select your rating.</div>
             </div>
           </div>
         </div>

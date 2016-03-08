@@ -1,7 +1,7 @@
 
 WebFontConfig = {
   google: {
-    families: [ 'Open Sans:400,700:latin' ]
+    families: [ 'Open Sans:300,400,500,600,700:latin' ]
   },
   active: function() {
     //jQuery(window).trigger("debouncedresize");
@@ -48,7 +48,40 @@ function loadMapScript() {
   document.body.appendChild(script);
 }
 
+var africaOne = {};
+
+//home page
+africaOne.initiateHomePage = function() {
+
+  //check for home page wrapper
+  var $homePageWrapper = $('.home-page-wrapper.full-page-wrapper');
+  if ($homePageWrapper.length <= 0) return;
+
+  //banner slider
+  var $bannerWrapper = $('.home-banner-reviews-wrapper');
+  var bannerSlider = $bannerWrapper.unslider({
+    autoplay: true,
+    arrows: false,
+    delay: 10000
+  });
+  $('.banner-review-start', $bannerWrapper).append('<div class="banners-arrow"><div class="slider-btn slider-btn-prev"><div class="arrow grey"></div><div class="arrow white"></div></div><div class="slider-btn slider-btn-next"><div class="arrow grey"></div><div class="arrow white"></div></div></div>');
+  $('.slider-btn-next', $bannerWrapper).click ( function() {
+    bannerSlider.unslider('next');
+  });
+  $('.slider-btn-prev', $bannerWrapper).click ( function() {
+    bannerSlider.unslider('prev');
+  });
+
+};
+
 $(window).ready( function() {
+
   //call maps when dom ready
-  loadMapScript();
+  if ($('#business-map').length) {
+    loadMapScript();
+  }
+
+  //home page
+  africaOne.initiateHomePage();
+
 });
