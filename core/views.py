@@ -15,7 +15,10 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 def index(request):
     review_list = Review.objects.all()
-    return render(request,'core/index.html')
+    categories = Category.objects.all()
+    return render(request,'core/index.html',{
+        'categories':categories,
+    })
 
 def logout_view(request):
     logout(request)

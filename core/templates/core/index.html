@@ -43,7 +43,9 @@
             <h3 class="panel-title">Top on AfricaOne near you</h3>
         </div>
         <div class="panel-body">
-
+          {% for category in categories %}
+            {{category}}:q
+            {% endfor %}
         </div>
     </div>
 
