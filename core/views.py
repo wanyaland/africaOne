@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from djangoratings.views import AddRatingView,AddRatingFromModel
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 
@@ -165,9 +166,23 @@ class BusinessDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(BusinessDetail,self).get_context_data(**kwargs)
         self.business =self.get_object()
-        self.reviews = self.business.review_set.all()
+        sort = self.request.GET.get('sort')
+        if sort=='date':
+         self.reviews = self.business.review_set.all().order_by('-create_date')
+        elif sort=='rating':
+         self.reviews = self.business.review_set.all().order_by('rating_score')
+        else:
+         self.reviews = self.business.review_set.all()
         self.categories = self.business.categories
-        context['reviews'] = self.reviews
+        paginator = Paginator(self.reviews,5)
+        page = self.request.GET.get('page')
+        try:
+            review_list = paginator.page(page)
+        except PageNotAnInteger:
+            review_list = paginator.page(1)
+        except EmptyPage:
+            review_list = paginator.page(paginator.num_pages)
+        context['reviews'] = review_list
         business_set = []
         review_photos = []
         categories = self.categories.all()
