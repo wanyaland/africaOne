@@ -7,9 +7,11 @@ from django.db.models import Avg
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=40)
+    parent_category = models.ForeignKey('self',blank=True,null=True)
     def __unicode__(self):
         return self.name
+
 
 class Business(models.Model):
     name = models.CharField(max_length=20)
@@ -27,6 +29,7 @@ class Business(models.Model):
     end_time = models.TimeField(null=True)
     features = models.ManyToManyField('Features',null=True)
     description = models.TextField(null=True)
+    price_range = models.IntegerField(null=True)
 
     def __unicode__(self):
         return self.name
@@ -60,7 +63,17 @@ class Features(models.Model):
     def  __unicode__(self):
         return self.name
 
+class EventCategory(models.Model):
+    name = models.CharField(max_length=255)
 
+class Event(models.Model):
+    name = models.CharField(max_length=20,null=True)
+    categories= models.ManyToManyField(EventCategory)
+    event_date = models.DateTimeField(null=True)
+    where = models.CharField(max_length=50,null=True)
+    description = models.TextField(null=True)
+    website_url = models.URLField(null=True)
+    price = models.IntegerField(null=True)
 
 
 
