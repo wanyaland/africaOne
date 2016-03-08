@@ -118,6 +118,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 MEDIA_URL='/media/'
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+TEMPLATE_DIRS =(os.path.join(BASE_DIR,'core/templates/'),)
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1680902652194882'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ae1a5ac1caa8392bdd7198aee9f5f4b4'
