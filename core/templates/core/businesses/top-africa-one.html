@@ -13,17 +13,9 @@
   <div class="businesses-wrapper">
     <h3>Top Businesses</h3>
     <div class="top-businesses-list">
+      {% for business in businesses %}
       {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
-      {% include 'core/businesses/top-business.html' %}
+      {% endfor %}
     </div>
   </div>
 
