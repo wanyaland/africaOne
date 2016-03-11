@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Category,Features,Business
+from core.models import Category,Features,Business,Review
 # Register your models here.
 
 admin.site.register(Category)
