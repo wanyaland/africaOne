@@ -16,6 +16,8 @@ urlpatterns = patterns('',
     #url(r'^admin/',include('admin.urls',namespace='admin')),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^api-auth',include('rest_framework.urls'),namespace='rest_framework'),
+    url(r'^api',include('api.urls')),
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 
