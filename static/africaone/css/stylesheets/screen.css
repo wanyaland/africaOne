@@ -1,0 +1,657 @@
+/**
+ * not working with mobile-first
+ * working with desktop first
+ * so set vars below accordingly
+ * - mobile-first for singularitygs
+ * - breakpoint-default-feature for breakpoint
+ */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f1f1f1;
+  font-size: 13px;
+  line-height: 1.7em;
+  color: #333;
+  font-family: "Open Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.full-page-wrapper {
+  position: relative;
+}
+
+.page-header {
+  position: relative;
+  z-index: 10;
+}
+
+.main-content-wrapper,
+.page-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a {
+  color: #579ebc;
+  text-decoration: none;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.btn {
+  display: block;
+  background: #77c301;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #007fa8;
+}
+.btn.grey-btn {
+  border: solid 1px #ccc;
+  background: #fff;
+  color: #666;
+}
+.btn.grey-btn:hover {
+  color: #fff;
+  background: #007fa8;
+  border-color: #007fa8;
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none none;
+}
+
+h1 {
+  font-size: 2.30769em;
+  line-height: 1.2em;
+  margin: 0;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.53846em;
+  line-height: 1.2em;
+}
+
+.todo {
+  color: #f00 !important;
+}
+
+/**
+ * @file
+ * Utility classes to hide elements in different ways.
+ */
+/**
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be collapsible details that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions.
+ */
+.hidden {
+  display: none;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen readers.
+ *
+ * Used for information required for screen reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides.
+ */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+/**
+ * The .focusable class extends the .visually-hidden class to allow
+ * the element to be focusable when navigated to via the keyboard.
+ */
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static !important;
+  clip: auto;
+  overflow: visible;
+  height: auto;
+  width: auto;
+}
+
+/**
+ * Hide visually and from screen readers, but maintain layout.
+ */
+.invisible {
+  visibility: hidden;
+}
+
+.header-strip-1 {
+  background: #fff;
+  padding: 30px 0;
+}
+.header-strip-1 .container {
+  position: relative;
+}
+
+.header-login-links {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 190px;
+  margin: 0 -2px;
+}
+.header-login-links .btn-col {
+  float: left;
+  width: 50%;
+  padding: 0 2px;
+}
+.header-login-links .btn {
+  line-height: 35px;
+}
+
+.find-companies-form {
+  margin: 0 auto;
+  width: 715px;
+}
+.find-companies-form .form-wrapper {
+  margin: 0 -1px;
+}
+.find-companies-form .item-wrapper {
+  background: #fff;
+  overflow: hidden;
+  line-height: 33px;
+  position: relative;
+  padding: 0 0 0 60px;
+  height: 35px;
+  border: solid 1px #c4c4c4;
+}
+.find-companies-form .item-wrapper:hover, .find-companies-form .item-wrapper.active {
+  border-color: #77c301;
+}
+.find-companies-form label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #85898a;
+  width: 60px;
+  display: block;
+  padding: 0 0 0 10px;
+}
+.find-companies-form .form-text {
+  display: block;
+  width: 100%;
+  height: 31px;
+  border: none;
+  outline: none;
+  padding: 0 30px 0 0;
+  color: #85898a;
+  font-size: 13px;
+}
+.find-companies-form .form-item {
+  float: left;
+  width: 47%;
+  padding: 0 1px;
+}
+.find-companies-form .form-actions {
+  width: 6%;
+}
+.find-companies-form .form-actions .item-wrapper {
+  padding: 0;
+}
+.find-companies-form .form-actions .form-submit {
+  border: none;
+  text-transform: uppercase;
+  background: transparent;
+  width: 100%;
+  height: 35px;
+  text-align: center;
+  color: #85898a;
+}
+
+.header-menu-strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -45px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: solid 1px rgba(0, 0, 0, 0.8);
+}
+.header-menu-strip .main-menu {
+  line-height: 45px;
+}
+.header-menu-strip .main-menu li {
+  float: left;
+  height: 45px;
+  width: 14.2%;
+  border-right: solid 1px rgba(0, 0, 0, 0.8);
+}
+.header-menu-strip .main-menu li.first {
+  width: 14.8%;
+  border-left: solid 1px rgba(0, 0, 0, 0.8);
+}
+.header-menu-strip .main-menu .parent-a {
+  display: block;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+.header-menu-strip .main-menu .parent-a:hover {
+  background-color: #77c301;
+}
+.header-menu-strip .main-menu .connect-li {
+  padding: 11px 0 0 20px;
+  line-height: 22px;
+}
+.header-menu-strip .main-menu .connect-li a, .header-menu-strip .main-menu .connect-li span {
+  display: block;
+}
+.header-menu-strip .main-menu .connect-li .connect, .header-menu-strip .main-menu .connect-li a {
+  float: left;
+  color: #fff;
+}
+
+.page-footer {
+  background: #fff;
+  margin-top: 65px;
+}
+
+.footer-copyright {
+  background: #007fa8;
+  color: #fff;
+  text-align: center;
+  padding: 25px 0;
+}
+
+.footer-btns {
+  margin: 45px 0;
+  text-align: center;
+}
+.footer-btns .btn {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0 40px;
+}
+
+.footer-menu {
+  text-align: center;
+  padding: 25px 0 0;
+  font-size: 0;
+}
+.footer-menu li {
+  display: inline-block;
+  padding: 0 15px 25px;
+  font-size: 14px;
+  border-bottom: solid 1px #f1f1f1;
+}
+.footer-menu a {
+  text-transform: uppercase;
+  color: #666;
+}
+.footer-menu a:hover {
+  color: #007fa8;
+}
+
+.write-review-wrapper {
+  color: #fff;
+  background: #77c301;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  line-height: 40px;
+  padding: 0 15px;
+  overflow: hidden;
+}
+.write-review-wrapper .review-stars {
+  float: left;
+  width: 105px;
+}
+.write-review-wrapper .txt {
+  float: right;
+}
+
+.businesss-review-item {
+  padding: 35px 30px 45px 310px;
+  position: relative;
+  border-bottom: solid 2px #f1f1f1;
+}
+.businesss-review-item .user {
+  position: absolute;
+  left: 30px;
+  top: 35px;
+  width: 245px;
+}
+.businesss-review-item .user .img {
+  float: left;
+  width: 70px;
+  height: 70px;
+  background: #cfd7da;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.businesss-review-item .user .user-details {
+  float: right;
+  width: 150px;
+  line-height: 1.3em;
+  color: #999;
+}
+.businesss-review-item .user .user-name {
+  font-weight: bold;
+  color: #579ebc;
+  font-size: 1.07692em;
+  margin-bottom: 5px;
+}
+.businesss-review-item .review-body-wrapper .title-wrapper {
+  margin: 15px 0;
+  position: relative;
+}
+.businesss-review-item .review-body-wrapper .title-wrapper h2 {
+  font-weight: normal;
+  font-size: 1.15385em;
+}
+.businesss-review-item .review-body-wrapper .title-wrapper .review-date {
+  position: absolute;
+  width: 150px;
+  overflow: hidden;
+  color: #999;
+  white-space: nowrap;
+  right: 0;
+  top: 0;
+}
+.businesss-review-item .review-body-wrapper .review-text {
+  color: #666;
+}
+.businesss-review-item .review-images-list {
+  margin: 15px -2px;
+  padding: 15px 0 0;
+  border-top: solid 1px #ccc;
+}
+.businesss-review-item .review-images-list li {
+  float: left;
+  padding: 0 2px;
+}
+.businesss-review-item .review-images-list img {
+  height: 75px;
+  width: auto;
+}
+.businesss-review-item .review-feedback {
+  margin: 15px 0;
+  padding: 15px 0;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+}
+.businesss-review-item .review-feedback label, .businesss-review-item .review-feedback a {
+  float: left;
+}
+.businesss-review-item .review-feedback label {
+  color: #aaa;
+  width: 126px;
+  line-height: 32px;
+}
+.businesss-review-item .review-feedback .btn {
+  line-height: 30px;
+  padding: 0 20px;
+  margin: 0 0 0 4px;
+}
+.businesss-review-item .share-review-btn {
+  line-height: 30px;
+  width: 160px;
+}
+
+.similar-business-item {
+  padding: 30px 25px;
+  border-bottom: solid 1px #f1f1f1;
+  color: #666;
+}
+.similar-business-item .img {
+  background: #f2f2f2;
+  float: left;
+  width: 130px;
+  height: 95px;
+}
+.similar-business-item .details {
+  margin-left: 150px;
+}
+.similar-business-item .title a {
+  text-transform: uppercase;
+  color: #007fa8;
+  font-weight: bold;
+  line-height: 1.2em;
+  font-size: 1.07692em;
+}
+
+.business-header {
+  background: #af7d42;
+  padding: 95px 0 0;
+}
+
+.business-title-header {
+  background: #fff;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 30px 525px 15px 25px;
+  position: relative;
+}
+.business-title-header .business-title-categories {
+  position: relative;
+  padding-right: 190px;
+}
+.business-title-header .business-reviews-stars-number {
+  position: absolute;
+  width: 190px;
+  right: 0;
+  top: 7px;
+}
+.business-title-header .categories {
+  margin: 6px 0 0;
+}
+.business-title-header .categories, .business-title-header .categories a {
+  color: #666;
+}
+.business-title-header .categories a:hover {
+  color: #77c301;
+}
+
+.start-business-review {
+  position: absolute;
+  right: 25px;
+  top: 29px;
+  width: 500px;
+}
+.start-business-review .btn-icon {
+  display: block;
+  float: right;
+  line-height: 30px;
+  border: solid 1px #ccc;
+  padding: 0 0 0 50px;
+  color: #666;
+  position: relative;
+}
+.start-business-review .btn-take-photo {
+  width: 135px;
+  border-right: none;
+  border-left: none;
+}
+.start-business-review .btn-share {
+  width: 108px;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.start-business-review .start-review-wrapper {
+  float: right;
+  width: 245px;
+}
+.start-business-review .start-review-wrapper .help-txt {
+  color: #999;
+}
+.start-business-review .start-review-wrapper .write-review-wrapper {
+  line-height: 32px;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.business-photos-carousel {
+  background: #fff;
+  padding: 20px;
+}
+
+.business-details-wrapper {
+  background: #fff;
+  padding: 45px 455px 30px 315px;
+  position: relative;
+  min-height: 300px;
+}
+.business-details-wrapper .business-details-col {
+  position: absolute;
+  left: 25px;
+  top: 45px;
+  width: 230px;
+}
+.business-details-wrapper .business-map-col {
+  position: absolute;
+  right: 25px;
+  top: 45px;
+  width: 390px;
+}
+.business-details-wrapper .business-map-col #business-map {
+  border: solid 1px #ccc;
+  height: 188px;
+}
+.business-details-wrapper .business-map-col .btn {
+  font-weight: bold;
+  font-size: 1.15385em;
+  text-transform: uppercase;
+  margin: 3px 0 0;
+}
+
+.business-details-col {
+  color: #666;
+  line-height: 1.3em;
+}
+
+.business-reviews-features-wrapper {
+  margin-top: 2px;
+}
+.business-reviews-features-wrapper .business-reviews-col {
+  float: left;
+  width: 100%;
+  padding-right: 417px;
+}
+.business-reviews-features-wrapper .business-features-col {
+  float: left;
+  width: 415px;
+  margin-left: -415px;
+}
+.business-reviews-features-wrapper .business-features-col .block {
+  background: #fff;
+  margin-bottom: 2px;
+}
+.business-reviews-features-wrapper .business-features-col h2 {
+  padding: 30px 25px;
+  border-bottom: solid 1px #f1f1f1;
+}
+.business-reviews-features-wrapper .business-features-col .block-facebook h2 {
+  border-bottom: none;
+}
+
+.business-reviews-col-wrapper {
+  background: #fff;
+}
+.business-reviews-col-wrapper .title-ratings-wrapper {
+  padding: 35px 30px 0;
+}
+.business-reviews-col-wrapper .title-ratings-wrapper h2 {
+  font-size: 2.30769em;
+  float: left;
+}
+.business-reviews-col-wrapper .title-ratings-wrapper .ratings-wrapper {
+  float: left;
+  padding: 6px 0 0 15px;
+}
+.business-reviews-col-wrapper .sort-wrapper {
+  padding: 20px 30px 25px;
+  color: #666;
+}
+.business-reviews-col-wrapper .sort-wrapper label {
+  display: block;
+  width: 56px;
+  line-height: 32px;
+  float: left;
+}
+.business-reviews-col-wrapper .sort-wrapper .btn {
+  float: left;
+  line-height: 30px;
+  padding: 0 30px;
+  margin-left: 10px;
+}
+.business-reviews-col-wrapper .trust-us-wrapper {
+  background: #007fa8;
+  color: #fff;
+  padding: 20px 30px;
+}
+.business-reviews-col-wrapper .trust-us-wrapper p {
+  margin: 0 0 5px;
+}
+.business-reviews-col-wrapper .trust-us-wrapper p.link {
+  margin: 0;
+}
+.business-reviews-col-wrapper .trust-us-wrapper p.link a {
+  color: #9bff00;
+}
+.business-reviews-col-wrapper .trust-us-wrapper .trust-info {
+  float: left;
+  width: 330px;
+}
+.business-reviews-col-wrapper .trust-us-wrapper .write-review-col {
+  float: right;
+  width: 265px;
+}
+.business-reviews-col-wrapper .trust-us-wrapper .write-review-col .intro {
+  padding-bottom: 10px;
+}
+
+/*# sourceMappingURL=screen.css.map */

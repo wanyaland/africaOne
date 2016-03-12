@@ -1,0 +1,17 @@
+
+.write-review-wrapper {
+  color: #fff;
+  background: $green;
+  @include border-radius(3px);
+  line-height: 40px;
+  padding: 0 15px;
+  overflow: hidden;
+  .review-stars {
+    float: left;
+    width: 105px;
+  }
+  .txt {
+    float: right;
+  }
+}
+
