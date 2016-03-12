@@ -34,23 +34,26 @@
   right: 25px; top: 29px;
   width: 500px;
   .btn-icon {
-    display: block;
     float: right;
-    line-height: 30px;
-    border: solid 1px #ccc;
-    padding: 0 0 0 50px;
-    color: #666;
-    position: relative;
+
   }
   .btn-take-photo {
     width: 135px;
     border-right: none;
     border-left: none;
+
+    .icon {
+      background-position: sprite-position($global-sprite, 'add-photo-grey');
+      span {
+        background-position: sprite-position($global-sprite, 'add-photo-white');
+      }
+    }
   }
   .btn-share {
     width: 108px;
-    @include border-top-right-radius(3px);
-    @include border-bottom-right-radius(3px);
+    @include border-top-left-radius(0);
+    @include border-bottom-left-radius(0);
+>>>>>>> theming
   }
   .start-review-wrapper {
     float: right;

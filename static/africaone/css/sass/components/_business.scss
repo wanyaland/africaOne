@@ -108,4 +108,52 @@
       @include ems_font_size(14px, $font-size-base);
     }
   }
+
+}
+
+.top-business-item {
+  position: relative;
+  min-height: 135px;
+  border-top: solid 1px #f1f1f1;
+  padding: 20px 100px 20px 155px;
+  img {
+    width: 100%; height: auto;
+  }
+  .business-img {
+    position: absolute;
+    width: 130px;
+    min-height: 70px;
+    left: 0; top: 20px;
+    background: #f2f2f2;
+    @include border-radius(3px);
+    overflow: hidden;
+  }
+  .business-user-photos {
+    position: absolute;
+    right: 0; bottom: 20px;
+    width: 65px;
+    .title {
+      @include ems_font_size(11px, $font-size-base);
+      color: #999;
+      line-height: 1.1em;
+      margin-bottom: 5px;
+    }
+    .images {
+      min-height: 40px;
+      background: #ccc;
+    }
+  }
+  .business-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    @include ems_font_size(17px, $font-size-base);
+  }
+  .business-reviews-stars-number {
+    margin: 10px 0;
+  }
+  .business-desc {
+    color: #666;
+    line-height: 1.5em;
+  }
+
 }

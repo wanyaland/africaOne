@@ -14,10 +14,16 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 def index(request):
-    review_list = Review.objects.all()
-    categories = Category.objects.all()
+    categories = Category.objects.filter(parent_category__isnull=True)
+    category = request.GET.get('category')
+    if category:
+        selected_cat = Category.objects.get(name=category)
+        businesses = selected_cat.business_set.all()
+    else:
+     businesses=[]
     return render(request,'core/index.html',{
         'categories':categories,
+        'businesses':businesses,
     })
 
 def logout_view(request):

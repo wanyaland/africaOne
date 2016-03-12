@@ -68,6 +68,49 @@ a {
   }
 }
 
+<<<<<<< HEAD
+=======
+.btn-icon {
+  @include transition(all .3s ease-in);
+  display: block;
+  line-height: 30px;
+  border: solid 1px #ccc;
+  padding: 0 0 0 50px;
+  color: #666;
+  position: relative;
+  background-color: #fff;
+  @include border-radius(3px);
+  span {
+    display: block;
+  }
+  .icon {
+    background: sprite($global-sprite, 'share-grey');
+    position: absolute;
+    top: 50%; left: 15px;
+    @include translateY(-50%);
+    span {
+      background: sprite($global-sprite, 'share-white');
+      @include sprite-dimensions($global-sprite, 'share-white');
+      @include opacity(0);
+      @include transition(opacity .3s ease-in);
+    }
+  }
+  &.no-radius {
+    @include border-radius(0);
+  }
+  &:hover {
+    background-color: $blue;
+    border-color: $blue;
+    color: #fff;
+    .icon {
+      span {
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+>>>>>>> theming
 .list-unstyled {
   margin: 0;
   padding: 0;
@@ -90,4 +133,56 @@ h2 {
 
 .todo {
   color: #f00 !important;
+<<<<<<< HEAD
+=======
+}
+
+.mobile-app-desc {
+  position: relative;
+  padding: 25px 50px 0 190px;
+  color: #666;
+  height: 238px;
+  p {
+    margin: 0;
+  }
+  .phones {
+    position: absolute;
+    background: sprite($global-sprite, 'mobile-phone');
+    @include sprite-dimensions($global-sprite, 'mobile-phone');
+    left: 33px; top: 42px;
+  }
+  .app-links {
+    margin-top: 13px;
+    a {
+      display: block;
+      margin: 6px 0 0;
+      background: sprite($global-sprite, 'download-app-apple');
+      @include sprite-dimensions($global-sprite, 'download-app-apple');
+      &.android {
+        background-position: sprite-position($global-sprite, 'download-app-google');
+      }
+    }
+  }
+}
+
+.more-photos-overlay {
+  position: relative;
+  .overlay-text {
+    text-align: center;
+    background: rgba(0,0,0,.6);
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    color: #fff;
+    .txt {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      @include translateY(-50%);
+    }
+  }
+}
+
+.connect-fb-wrapper {
+  padding: 25px 30px 30px;
+>>>>>>> theming
 }
