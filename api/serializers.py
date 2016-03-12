@@ -14,4 +14,4 @@ class DonorSerializer(serializers.ModelSerializer):
     user = UserSerializer
     class Meta:
         model=Donor
-        fields=('id','fine','fine_price','total_fine')
+        fields=('id','user','fine','fine_price','total_fine',)

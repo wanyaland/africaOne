@@ -6,4 +6,5 @@ from api import views
 urlpatterns = patterns('',
                        url(r'^donors/$',views.DonorList.as_view()),
                        url(r'^users/$',views.UserList.as_view()),
+                       url(r'^donors/(?P<pk>[0-9]+)/$',views.DonorDetail.as_view()),
 )

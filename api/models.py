@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Donor(models.Model):
     user = models.ForeignKey(User)
-    fine= models.CharField(max_length=100)
+    fine= models.CharField(max_length=100,null=True,blank=True)
     fine_price = models.IntegerField()
     total_fine = models.IntegerField()
 
