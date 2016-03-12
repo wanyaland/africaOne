@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms import TextInput,EmailInput
 from models import Customer,Business,Review,BusinessPhoto
-from widgets import *
 from django.forms.widgets import RadioFieldRenderer
 from django.core.exceptions import *
 
