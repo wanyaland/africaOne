@@ -6,6 +6,7 @@ django-geoposition==0.2.2
 django-hvad==1.4.0
 django-libs==1.66.12
 django-ratings==0.3.7
+django-rest-auth==0.3.0
 django-review==1.9.2
 django-user-media==1.1.6
 djangorestframework==2.4.8
@@ -18,7 +19,7 @@ Pillow==3.0.0
 psycopg2==2.6.1
 PyJWT==1.4.0
 python-openid==2.2.5
-python-social-auth==0.2.13
+python-social-auth==0.2.1
 requests==2.9.1
 requests-oauthlib==0.6.0
 simplejson==3.8.1
