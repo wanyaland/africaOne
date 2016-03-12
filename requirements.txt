@@ -1,11 +1,12 @@
 beautifulsoup4==4.4.1
-Django==1.6.11
+Django==1.7
 django-appconf==1.0.1
 django-generic-positions==0.1.7
 django-geoposition==0.2.2
 django-hvad==1.4.0
 django-libs==1.66.12
 django-ratings==0.3.7
+django-rest-auth==0.4.0
 django-review==1.9.2
 django-user-media==1.1.6
 djangorestframework==2.4.8
