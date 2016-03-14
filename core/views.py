@@ -10,6 +10,7 @@ from djangoratings.views import AddRatingView,AddRatingFromModel
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from csvImporter.models import *
 
 
 
