@@ -17,10 +17,10 @@ class Migration(migrations.Migration):
             name='Business',
             fields=[
                 ('id', models.IntegerField(serialize=False, primary_key=True)),
-                ('name', models.CharField(max_length=20)),
+                ('name', models.CharField(max_length=100)),
                 ('address', models.TextField(null=True, blank=True)),
-                ('city', models.CharField(max_length=20, null=True)),
-                ('phone_number', models.CharField(max_length=12, null=True)),
+                ('city', models.CharField(max_length=50, null=True)),
+                ('phone_number', models.TextField(null=True, blank=True)),
                 ('web_address', models.URLField(null=True)),
                 ('photo', models.ImageField(null=True, upload_to=b'businesses/%Y/%m/%d')),
                 ('create_date', models.DateTimeField(auto_now_add=True, null=True)),

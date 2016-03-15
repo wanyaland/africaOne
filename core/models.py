@@ -16,11 +16,11 @@ class Category(models.Model):
 
 class Business(models.Model):
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=100)
     categories = models.ManyToManyField(Category)
     address = models.TextField(blank=True,null=True)
-    city = models.CharField(max_length=20,null=True)
-    phone_number = models.CharField(max_length=12,null=True)
+    city = models.CharField(max_length=50,null=True)
+    phone_number = models.TextField(blank=True,null=True)
     web_address = models.URLField(null=True)
     photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True,null=True)
