@@ -231,9 +231,9 @@ def search_business(request):
 
 class BusinessList(ListView):
     model = Business
+    paginate_by = 30
 
 
-@login_required
 class ReviewCreate(CreateView):
     form_class = ReviewForm
     template_name = 'core/review_form.html'
