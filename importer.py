@@ -32,16 +32,19 @@ csv_listings ="/home/wanyama/workspace/africa_one/csv/Listing.csv"
 business_reader = csv.reader(open(csv_listings),delimiter=',',quotechar='"')
 
 for row in business_reader:
+    print row
 
     business = Business()
     business.id = row[0]
     business.name=row[1]
-    business.description=row[2]
-    business.web_address=row[4]
-    business.location = Geoposition(row[5],row[6])
-    business.phone_number=row[7]
+    business.email=row[2]
+    business.description=row[3]
+    business.web_address=row[5]
+    business.location = Geoposition(row[7],row[8])
+    business.phone_number=row[9]
     business.save()
     print "isdone"
+
 
 
 print "completed"
