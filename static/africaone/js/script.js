@@ -2,10 +2,14 @@
 WebFontConfig = {
   google: {
 <<<<<<< HEAD
+<<<<<<< HEAD
     families: [ 'Open Sans:400,700:latin' ]
 =======
     families: [ 'Open Sans:300,400,500,600,700:latin' ]
 >>>>>>> theming
+=======
+    families: [ 'Open Sans:300,400,500,600,700:latin' ]
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
   },
   active: function() {
     //jQuery(window).trigger("debouncedresize");
@@ -53,10 +57,13 @@ function loadMapScript() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $(window).ready( function() {
   //call maps when dom ready
   loadMapScript();
 =======
+=======
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
 var africaOne = {};
 
 //home page
@@ -93,5 +100,8 @@ $(window).ready( function() {
   //home page
   africaOne.initiateHomePage();
 
+<<<<<<< HEAD
 >>>>>>> theming
+=======
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
 });

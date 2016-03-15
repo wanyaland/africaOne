@@ -7,6 +7,7 @@ from django.db.models import Avg
 # Create your models here.
 
 class Category(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=40)
     parent_category = models.ForeignKey('self',blank=True,null=True)
     def __unicode__(self):
@@ -14,11 +15,12 @@ class Category(models.Model):
 
 
 class Business(models.Model):
-    name = models.CharField(max_length=20)
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100)
     categories = models.ManyToManyField(Category)
     address = models.TextField(blank=True,null=True)
-    city = models.CharField(max_length=20,null=True)
-    phone_number = models.CharField(max_length=12,null=True)
+    city = models.CharField(max_length=50,null=True)
+    phone_number = models.TextField(blank=True,null=True)
     web_address = models.URLField(null=True)
     photo = models.ImageField(null=True,upload_to='businesses/%Y/%m/%d')
     create_date = models.DateTimeField(auto_now_add=True,null=True)
@@ -39,6 +41,8 @@ class Business(models.Model):
     def get_avg_rating(self):
         # get avg rating review for objects that were rated
         return Review.objects.filter(business=self,rating_score__range=(1,5)).aggregate(Avg('rating_score'))['rating_score__avg']
+
+
 
 
 class Customer(models.Model):
