@@ -155,7 +155,9 @@
           <div class="block-content">
             {% for business in business_set %}
               <div class="similar-business-item clearfix">
+                {% if business.photo %}
                   <img src="{{business.photo.url}}" class="img">
+                {% endif %}
                 <div class="details">
                   <div class="title">
                     <a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a>

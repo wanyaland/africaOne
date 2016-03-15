@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import logout
 from forms import *
@@ -10,7 +11,7 @@ from djangoratings.views import AddRatingView,AddRatingFromModel
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from csvImporter.models import *
+
 
 
 
@@ -222,13 +223,17 @@ def search_business(request):
         )
         results = Business.objects.filter(qset).distinct()
     else:
-        results =[]
+        results = []
     return render(request,'core/business_list.html',{
         'results':results,
         'query':query,
     })
 
+class BusinessList(ListView):
+    model = Business
 
+
+@login_required
 class ReviewCreate(CreateView):
     form_class = ReviewForm
     template_name = 'core/review_form.html'

@@ -1,20 +1,10 @@
 {% extends 'core/base.html' %}
 {% block main %}
-<div class="inline position-relative">
-<form action="." method="GET">
-    <label for="q">Name:</label>
-    <input type="text" name="q" value="{{query|escape}}">
-    <input type="submit" value="Find Business" class="btn-sm btn-primary">
-</form>
-<p>
-   Cant find your business? <a href="{% url 'core:business_add'%}">Add Your Business </a>
-</p>
-</div>
 
-{% if query %}
 <div class="table-header">
     Business List
 </div>
+
 <div class="table-responsive">
     <table id="sample-table-2" class="table table-stripped table-bordered table-hover">
         <thead>
@@ -26,8 +16,7 @@
         </tr>
         </thead>
         <tbody>
-        {% if results %}
-        {% for business in results %}
+        {% for business in business_list %}
         <tr>
             <td><a href="{% url 'core:business_detail' pk=business.pk %}">{{business.name}}</a> </td>
             <td>{{business.address}}</td>
@@ -35,10 +24,8 @@
             <td>{{business.city}}</td>
         </tr>
         {% endfor %}
-        {% endif %}
         </tbody>
     </table>
 
 </div>
-  {% endif %}
 {% endblock %}
