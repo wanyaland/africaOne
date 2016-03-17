@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import logout
+from django.utils.decorators import method_decorator
 from forms import *
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -202,7 +203,7 @@ class BusinessDetail(DetailView):
             for business in category.business_set.all():
                 if business!= self.business:
                     business_set.append(business)
-        context['business_set']= business_set
+        context['business_set']= business_set[:3]
         for review in self.reviews:
             for photo in review.businessphoto_set.all():
                 review_photos.append(photo)
@@ -257,20 +258,31 @@ class ReviewCreate(CreateView):
         return context
 
     def form_valid(self,form):
-        form.instance.customer = get_object_or_404(Customer,user=self.request.user)
+        if self.request.user.is_authenticated():
+            if self.request.user.userprofile:
+                form.instance.customer = self.request.user.userprofile
+        elif self.request.user.is_anonymous():
+            message = "You are need to login first to review"
+        else :
+          message="You are not authorized to post a review"
+
         context = self.get_context_data()
         form.instance.business = context['business']
         #form.instance.rating.add(score=self.request.POST['rating'],user=self.request.user,ip_address=self.request.META['REMOTE_ADDR'])
+        image_list =    self.request.FILES.getlist('files')
         response=super(ReviewCreate,self).form_valid(form)
         review_type = ContentType.objects.get_for_model(self.object)
         score = self.request.POST['rating']
         params = {
+                'message':message,
                 'content_type_id':review_type.id,
                 'object_id':self.object.id,
                 'field_name': 'rating',
                 'score':score,
          }
         AddRatingView()(self.request,**params)
+        for file in image_list:
+            BusinessPhoto.objects.create(photo=file,review=self.object)
         return response
 
 
