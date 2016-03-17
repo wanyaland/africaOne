@@ -1,0 +1,182 @@
+
+$global-sprite: sprite-map("globals/*.png");
+
+$green: #77c301;
+$blue: #007fa8;
+
+* {
+  @include box-sizing('border-box');
+}
+
+body {
+  margin: 0;
+  background: #f1f1f1;
+  font-size: $font-size-base;
+  line-height: 1.7em;
+  color: #333;
+  font-family: "Open Sans", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.full-page-wrapper {
+  position: relative;
+}
+.page-header {
+  position: relative;
+  z-index: 10;
+}
+.main-content-wrapper,
+.page-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+a {
+  color: #579ebc;
+  text-decoration: none;
+  @include transition(all 0.3s ease-in);
+}
+.btn {
+  display: block;
+  background: $green;
+  @include border-radius(3px);
+  color: #fff;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  &:hover {
+    background-color: $blue;
+  }
+  &.grey-btn {
+    border: solid 1px #ccc;
+    background: #fff;
+    color: #666;
+    &:hover {
+      color: #fff;
+      background: $blue;
+      border-color: $blue;
+    }
+  }
+}
+
+.btn-icon {
+  @include transition(all .3s ease-in);
+  display: block;
+  line-height: 30px;
+  border: solid 1px #ccc;
+  padding: 0 0 0 50px;
+  color: #666;
+  position: relative;
+  background-color: #fff;
+  @include border-radius(3px);
+  span {
+    display: block;
+  }
+  .icon {
+    background: sprite($global-sprite, 'share-grey');
+    position: absolute;
+    top: 50%; left: 15px;
+    @include translateY(-50%);
+    span {
+      background: sprite($global-sprite, 'share-white');
+      @include sprite-dimensions($global-sprite, 'share-white');
+      @include opacity(0);
+      @include transition(opacity .3s ease-in);
+    }
+  }
+  &.no-radius {
+    @include border-radius(0);
+  }
+  &:hover {
+    background-color: $blue;
+    border-color: $blue;
+    color: #fff;
+    .icon {
+      span {
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none none;
+}
+
+h1 {
+  @include ems_font_size(30px, $font-size-base);
+  line-height: 1.2em;
+  margin: 0;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  @include ems_font_size(20px, $font-size-base);
+  line-height: 1.2em;
+}
+
+.todo {
+  color: #f00 !important;
+}
+
+.mobile-app-desc {
+  position: relative;
+  padding: 25px 50px 0 190px;
+  color: #666;
+  height: 238px;
+  p {
+    margin: 0;
+  }
+  .phones {
+    position: absolute;
+    background: sprite($global-sprite, 'mobile-phone');
+    @include sprite-dimensions($global-sprite, 'mobile-phone');
+    left: 33px; top: 42px;
+  }
+  .app-links {
+    margin-top: 13px;
+    a {
+      display: block;
+      margin: 6px 0 0;
+      background: sprite($global-sprite, 'download-app-apple');
+      @include sprite-dimensions($global-sprite, 'download-app-apple');
+      &.android {
+        background-position: sprite-position($global-sprite, 'download-app-google');
+      }
+    }
+  }
+}
+
+.more-photos-overlay {
+  position: relative;
+  .overlay-text {
+    text-align: center;
+    background: rgba(0,0,0,.6);
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    color: #fff;
+    .txt {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      @include translateY(-50%);
+    }
+  }
+}
+
+.connect-fb-wrapper {
+  padding: 25px 30px 30px;
+}

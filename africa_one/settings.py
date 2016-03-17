@@ -76,6 +76,8 @@ REST_FRAMEWORK = {
     )
 }
 
+
+
 ROOT_URLCONF = 'africa_one.urls'
 
 WSGI_APPLICATION = 'africa_one.wsgi.application'
@@ -144,6 +146,7 @@ MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 
 SOCIAL_AUTH_FACEBOOK_KEY = '133505350038695'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c0b5182939ed483ee7013fb0a957ee8d'
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='730951327557-rkje0er9bhpt1vuqod0isrhkcg74krhs.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='_zimvnPA7iLI2GFyau49Pp9p'
 SOCIAL_AUTH_TWITTER_KEY = 'toQGgOTnxFXVB44O0ji38w7F5'
