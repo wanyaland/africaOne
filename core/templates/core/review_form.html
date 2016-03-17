@@ -1,12 +1,11 @@
 {% extends 'core/base.html' %}
 {% block main %}
-<pre>
-    |{{ form }}|
-</pre>
+
 
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
+
             <div class="panel-heading">
                 <h3 class="panel-title">Write a Review</h3>
             </div>
@@ -17,15 +16,14 @@
                      <i class="icon-warning-sign"></i>
                        {% if field != '__all__' %}{{ field }}{% endif %}
                        {{ error|striptags }}
+                       {{message}}
                      </div>
                 {% endfor %}
                 {% endif %}
             <form action="{{action_url}}" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
               {% include "core/review_snippet.html" %}
-                Select Photos:<input type="file" name="img" multiple id="filesToUpload" name="filesToUpload[]">
-                <ul id="fileList">
-                </ul>
+                Select Photos:{{form.files}}
                 <br>
               <input type="submit" value="Post"/>
             </form>
