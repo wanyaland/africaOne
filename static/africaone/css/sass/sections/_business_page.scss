@@ -35,11 +35,19 @@
   width: 500px;
   .btn-icon {
     float: right;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
   }
   .btn-take-photo {
     width: 135px;
     border-right: none;
     border-left: none;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
     .icon {
       background-position: sprite-position($global-sprite, 'add-photo-grey');
       span {
@@ -51,6 +59,10 @@
     width: 108px;
     @include border-top-left-radius(0);
     @include border-bottom-left-radius(0);
+<<<<<<< HEAD
+>>>>>>> theming
+=======
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
   }
   .start-review-wrapper {
     float: right;
@@ -183,4 +195,8 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6769cd1bea8dcd5a70a9d1f05ea170b2e02c3f2f
