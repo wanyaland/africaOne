@@ -30,7 +30,7 @@ TIME_ZONE = 'Africa/Kampala'
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     #'generic_positions',
     'social.apps.django_app.default',
     'geoposition',
-    #'admin',
+    'admin',
     'djangoratings',
     'geopy',
     'rest_framework',
