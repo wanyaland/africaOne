@@ -258,13 +258,6 @@ class ReviewCreate(CreateView):
         return context
 
     def form_valid(self,form):
-        if self.request.user.is_authenticated():
-            if self.request.user.userprofile:
-                form.instance.customer = self.request.user.userprofile
-        elif self.request.user.is_anonymous():
-            message = "You are need to login first to review"
-        else :
-          message="You are not authorized to post a review"
 
         context = self.get_context_data()
         form.instance.business = context['business']
@@ -274,7 +267,6 @@ class ReviewCreate(CreateView):
         review_type = ContentType.objects.get_for_model(self.object)
         score = self.request.POST['rating']
         params = {
-                'message':message,
                 'content_type_id':review_type.id,
                 'object_id':self.object.id,
                 'field_name': 'rating',
