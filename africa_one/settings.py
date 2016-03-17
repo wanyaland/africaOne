@@ -52,9 +52,19 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'api',
     'rest_auth',
-    #'import_export',
 
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -143,10 +153,8 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR,'core/templates/'),)
 MEDIA_URL='/media/'
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
-
-SOCIAL_AUTH_FACEBOOK_KEY = '133505350038695'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'c0b5182939ed483ee7013fb0a957ee8d'
-
+SOCIAL_AUTH_FACEBOOK_KEY = '1680902652194882'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ae1a5ac1caa8392bdd7198aee9f5f4b4'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='730951327557-rkje0er9bhpt1vuqod0isrhkcg74krhs.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='_zimvnPA7iLI2GFyau49Pp9p'
 SOCIAL_AUTH_TWITTER_KEY = 'toQGgOTnxFXVB44O0ji38w7F5'

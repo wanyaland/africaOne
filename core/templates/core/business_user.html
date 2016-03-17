@@ -2,7 +2,11 @@
 {% block main %}
 <div class="row">
     <div class="col-md-6">
+<<<<<<< HEAD
         <form method="post" action="{{action_url}}" enctype="multipart/form-data">{% csrf_token %}
+=======
+        <form method="post" action="{{action_url}}" enctype="multipart/form-data">{% csrf_token %}>
+>>>>>>> 58027baed279cd925d3821857fcb3e86207f5f1a
     {{business_form.as_p}}
     {{review_form.as_p}}
     <button class="btn btn-primary" type="submit">Create Business</button>
