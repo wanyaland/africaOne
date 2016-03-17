@@ -3,8 +3,7 @@
 **/*.idea
 **/*.orig
 **/*.DS_Store
-**/settings.py
 **/.sass-cache
 **/content-images
-africa_one/settings.py
 env_mac
+env
