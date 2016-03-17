@@ -3,7 +3,8 @@
 **/*.idea
 **/*.orig
 **/*.DS_Store
+env/
 **/.sass-cache
 **/content-images
 env_mac
-env
+

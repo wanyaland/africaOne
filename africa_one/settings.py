@@ -52,7 +52,7 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'api',
     'rest_auth',
-    'import_export',
+    #'import_export',
 
 )
 
