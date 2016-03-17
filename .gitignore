@@ -6,5 +6,6 @@
 env/
 **/.sass-cache
 **/content-images
+africa_one/settings.py
 env_mac
 
