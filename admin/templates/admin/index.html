@@ -68,18 +68,14 @@
             </div>
             <div class="businesses-list clearfix">
               <div class="businesses-list-items-wrapper">
-                {% include 'admin/businesses/business_list_item.html' %}
-                {% include 'admin/businesses/business_list_item.html' %}
-                {% include 'admin/businesses/business_list_item.html' %}
-                {% include 'admin/businesses/business_list_item.html' %}
-                {% include 'admin/businesses/business_list_item.html' %}
-                {% include 'admin/businesses/business_list_item.html' %}
+                {% for business in business_list %}
+                  {% include 'admin/businesses/business_list_item.html' %}
+                {% endfor %}
               </div>
               <div class="businesses-full-details-wrapper">
+                {% for business in business_list %}
                 {% include 'admin/businesses/business_full_detail.html' %}
-                {% include 'admin/businesses/business_full_detail.html' %}
-                {% include 'admin/businesses/business_full_detail.html' %}
-                {% include 'admin/businesses/business_full_detail.html' %}
+                {% endfor %}
               </div>
             </div>
           </div>
