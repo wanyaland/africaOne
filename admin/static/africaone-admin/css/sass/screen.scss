@@ -3,6 +3,7 @@
 @import "compass/utilities";
 
 .business-full-detail-wrapper {
+  display: none;
   .body {
     margin-top: 16px;
   }
@@ -27,4 +28,20 @@
 }
 
 .africaone-home-wrapper {
+  .businesses-list-items-wrapper,
+  .businesses-full-details-wrapper {
+    float: left;
+    width: 100%;
+    @include transition(width .3s ease-in);
+    overflow: hidden;;
+  }
+  .businesses-full-details-wrapper {
+    width: 0;
+  }
+  .businesses-list.showing-details {
+    .businesses-list-items-wrapper,
+    .businesses-full-details-wrapper {
+      width: 50%;
+    }
+  }
 }

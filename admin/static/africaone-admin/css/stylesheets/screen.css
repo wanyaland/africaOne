@@ -1,3 +1,6 @@
+.business-full-detail-wrapper {
+  display: none;
+}
 .business-full-detail-wrapper .body {
   margin-top: 16px;
 }
@@ -20,6 +23,24 @@
   display: table-cell;
   width: 100%;
   padding: .1em .8em .5em;
+}
+
+.africaone-home-wrapper .businesses-list-items-wrapper,
+.africaone-home-wrapper .businesses-full-details-wrapper {
+  float: left;
+  width: 100%;
+  -moz-transition: width 0.3s ease-in;
+  -o-transition: width 0.3s ease-in;
+  -webkit-transition: width 0.3s ease-in;
+  transition: width 0.3s ease-in;
+  overflow: hidden;
+}
+.africaone-home-wrapper .businesses-full-details-wrapper {
+  width: 0;
+}
+.africaone-home-wrapper .businesses-list.showing-details .businesses-list-items-wrapper,
+.africaone-home-wrapper .businesses-list.showing-details .businesses-full-details-wrapper {
+  width: 50%;
 }
 
 /*# sourceMappingURL=screen.css.map */
