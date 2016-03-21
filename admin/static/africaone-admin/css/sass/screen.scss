@@ -1,0 +1,30 @@
+
+@import "compass/css3";
+@import "compass/utilities";
+
+.business-full-detail-wrapper {
+  .body {
+    margin-top: 16px;
+  }
+}
+.businesses-list {
+  margin: 0 -10px;
+}
+.business-list-item {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 4px 10px 2px;
+  position: relative;
+  .check-bulk {
+    padding: 0 .1em 0 .2em;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .details {
+    display: table-cell;
+    width: 100%;
+    padding: .1em .8em .5em;
+  }
+}
+
+.africaone-home-wrapper {
+}
