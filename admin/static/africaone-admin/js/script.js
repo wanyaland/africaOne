@@ -1,87 +1,37 @@
 
-WebFontConfig = {
-  google: {
-    families: [ 'Open Sans:300,400,500,600,700:latin' ]
-  },
-  active: function() {
-    //jQuery(window).trigger("debouncedresize");
+var africaone = {};
+
+/**
+ * businesses list
+ */
+africaone.initiateBusinesses = function() {
+  var $wrapper = $('.africaone-home-wrapper .businesses-list');
+  if ($wrapper.length <= 0) {
+    return;
   }
-};
-(function() {
-  var wf = document.createElement('script');
-  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-  wf.type = 'text/javascript';
-  wf.async = 'true';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(wf, s);
-})();
 
+  var $listItemsWrapper = $('.businesses-list-items-wrapper', $wrapper);
+  var $detailsItemsWrapper = $('.businesses-full-details-wrapper', $wrapper);
 
+  $('.business-list-item', $listItemsWrapper).click( function() {
+    var $businessItem = $(this);
+    var businessID = $businessItem.data('id');
 
-function initializeMap() {
-  var $mapDiv = $('#business-map');
-  var mapPosn = $mapDiv.data('business-location').split(',');
-  var latLngPosn = new google.maps.LatLng(mapPosn[0], mapPosn[1]);
-  var map = new google.maps.Map(document.getElementById($mapDiv.attr('id')), {
-    center: latLngPosn,
-    zoom: 15,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
-  var marker = new google.maps.Marker({
-    position: latLngPosn,
-    map: map,
-    title: $mapDiv.data('title')
+    $('.business-list-item', $listItemsWrapper).removeClass('active');
+    $businessItem.addClass('active');
+
+    $('.business-full-detail-wrapper', $detailsItemsWrapper).hide();
+    $('#business-full-detail-' + businessID, $detailsItemsWrapper).show();
+
+    $wrapper.addClass('showing-details');
   });
 
-  // Reposition on resize.
-  google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(latLngPosn);
-  });
-
-}
-
-function loadMapScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initializeMap';
-  document.body.appendChild(script);
-}
-
-var africaOne = {};
-
-//home page
-africaOne.initiateHomePage = function() {
-
-  //check for home page wrapper
-  var $homePageWrapper = $('.home-page-wrapper.full-page-wrapper');
-  if ($homePageWrapper.length <= 0) return;
-
-  //banner slider
-  var $bannerWrapper = $('.home-banner-reviews-wrapper');
-  var bannerSlider = $bannerWrapper.unslider({
-    autoplay: true,
-    arrows: false,
-    delay: 10000
-  });
-  $('.banner-review-start', $bannerWrapper).append('<div class="banners-arrow"><div class="slider-btn slider-btn-prev"><div class="arrow grey"></div><div class="arrow white"></div></div><div class="slider-btn slider-btn-next"><div class="arrow grey"></div><div class="arrow white"></div></div></div>');
-  $('.slider-btn-next', $bannerWrapper).click ( function() {
-    bannerSlider.unslider('next');
-  });
-  $('.slider-btn-prev', $bannerWrapper).click ( function() {
-    bannerSlider.unslider('prev');
+  $('.close-btn-col .btn', $detailsItemsWrapper).click( function() {
+    $wrapper.removeClass('showing-details');
   });
 
 };
 
 $(window).ready( function() {
-
-  //call maps when dom ready
-  if ($('#business-map').length) {
-    loadMapScript();
-  }
-
-  //home page
-  africaOne.initiateHomePage();
-
+  africaone.initiateBusinesses();
 });
