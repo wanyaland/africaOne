@@ -56,6 +56,7 @@
         </div>
         <!-- /top tiles -->
 
+
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="dashboard_graph africaone-home-wrapper">
@@ -72,6 +73,19 @@
                   {% include 'admin/businesses/business_list_item.html' %}
                 {% endfor %}
               </div>
+              <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
               <div class="businesses-full-details-wrapper">
                 {% for business in business_list %}
                 {% include 'admin/businesses/business_full_detail.html' %}
