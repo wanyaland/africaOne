@@ -11,7 +11,12 @@ class BusinessList(ListView):
     queryset = Business.objects.all()
     template_name = 'admin/index.html'
     paginate_by = 50
-    
+
+
+class BusinessCreate(CreateView):
+   model=Business
+   template_name= 'admin/businesses/create_business.html'
+
 
 
 

@@ -23,9 +23,9 @@
         <li><a href="/manager"><i class="fa fa-home"></i>Dashboard</a></li>
         <li><a><i class="fa fa-suitcase"></i>Manage Listings<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu" style="display: none">
-            <li><a href="/manager">All Listings</a>
+            <li><a href="{% url 'admin:home' %}">All Listings</a>
             </li>
-            <li><a href="empty.html">Add Listing</a>
+            <li><a href="{% url 'admin:create_business' %}">Add Listing</a>
             </li>
           </ul>
         </li>
