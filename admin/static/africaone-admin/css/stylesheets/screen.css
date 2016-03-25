@@ -1,3 +1,7 @@
+body {
+  color: #333;
+}
+
 .business-full-detail-wrapper {
   display: none;
 }
@@ -41,6 +45,108 @@
 .africaone-home-wrapper .businesses-list.showing-details .businesses-list-items-wrapper,
 .africaone-home-wrapper .businesses-list.showing-details .businesses-full-details-wrapper {
   width: 50%;
+}
+
+.img-circle.profile_img {
+  min-height: 56px;
+}
+
+.nav_menu {
+  margin-bottom: 0;
+}
+
+#menu_toggle {
+  cursor: pointer;
+}
+
+.site-logo {
+  padding: 15px 15px 0;
+}
+.site-logo, .site-logo span {
+  display: block;
+}
+.site-logo span {
+  background: url('../images/globals-s0284991fd0.png') 0 0;
+  height: 45px;
+  width: 187px;
+}
+body.nav-sm .site-logo {
+  padding: 15px 11px 0;
+}
+body.nav-sm .site-logo span {
+  width: 44px;
+}
+
+.create-business-form-wrapper h1 {
+  margin-bottom: 24px;
+}
+.create-business-form-wrapper label {
+  font-size: 16px;
+}
+.create-business-form-wrapper .form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+.create-business-form-wrapper .form-group .alert {
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: -3px;
+}
+.create-business-form-wrapper #business-address-1 {
+  margin-bottom: 12px;
+}
+.create-business-form-wrapper .hours-wrapper,
+.create-business-form-wrapper .chosen-categories-wrapper {
+  margin-bottom: 9px;
+}
+.create-business-form-wrapper .chosen-category {
+  margin-bottom: 3px;
+}
+.create-business-form-wrapper .chosen-category span {
+  padding-right: 9px;
+}
+.create-business-form-wrapper .hours {
+  display: table-row;
+  margin-bottom: 3px;
+}
+.create-business-form-wrapper .hours span {
+  display: table-cell;
+  padding-right: 9px;
+}
+.create-business-form-wrapper .hours span.weekday {
+  font-weight: bold;
+}
+.create-business-form-wrapper .hours-select li {
+  padding: 0 2px;
+}
+.create-business-form-wrapper .autocomplete-no-suggestion {
+  padding: 6px;
+}
+.create-business-form-wrapper .autocomplete-suggestion {
+  background: #fff;
+  border-bottom: solid 1px #ccc;
+  padding: 3px 6px;
+}
+.create-business-form-wrapper .autocomplete-suggestion:hover, .create-business-form-wrapper .autocomplete-suggestion.autocomplete-selected {
+  color: #fff;
+  background-color: #337ab7;
+}
+.create-business-form-wrapper .category-spacer {
+  margin: 0 6px;
+}
+.create-business-form-wrapper .gllpLatlonPicker .search-btn {
+  margin: 0;
+}
+.create-business-form-wrapper .gllpLatlonPicker .input-group {
+  margin: 0;
+}
+.create-business-form-wrapper .gllpMap {
+  height: 400px;
+  background: #eee;
+}
+.create-business-form-wrapper .business-location-name {
+  padding: 15px;
 }
 
 /*# sourceMappingURL=screen.css.map */
